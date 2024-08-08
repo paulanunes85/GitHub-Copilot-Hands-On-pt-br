@@ -43,6 +43,9 @@ Now we can see the labs.md file to one side of the screen while we are executing
 
 ![Split View](./images/pic001.png?raw=true "Split View")
 
+### 4. Switch to the Insiders version of Visual Studio Code in the browser
+
+
 ### 4. Let us know how we are doing
 <!-- Instruct lab participants to leverage GitHub disussions found here: https://github.com/DaveOps30/copilot-hands-on/discussions -->
 <!-- Specifically reference the "Workshop Feedback & Suggestions" and "Workshop Issues" categories -->
