@@ -1,6 +1,6 @@
 # Hands-on Workshop
 ## GitHub Copilot - The World’s Most Widely Adopted AI Developer Tool
-Revision 1.2 - 08/08/24
+Revision 1.2 - 08/12/24
 
 **Versions of dialogs, buttons, etc. shown in screenshots may differ from current version of Copilot**
 
