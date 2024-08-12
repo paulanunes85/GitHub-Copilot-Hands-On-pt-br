@@ -68,7 +68,75 @@ We are leveraging [**GitHub Discussions**](https://github.com/DaveOps30/copilot-
 - When you encounter something you want to share, please post in the [`Show and Tell` discussion category](https://github.com/DaveOps30/copilot-hands-on/discussions/categories/show-and-tell).
 
 
-## Lab 1 - Learning how to create good prompts for Copilot
+## Lab 1 - Using GitHub Copilot to learn about GitHub Copilot 
+
+**Purpose: In this lab, we’ll start to learn about GitHub Copilot by asking GitHub Copilot questions about GitHub Copilot.**
+
+One way to interact with GitHub Copilot is to use the chat interface. This is a great way to ask questions about GitHub Copilot since it is a natural language interface and has been trained on a wide variety of resources.
+
+1. Select the Chat extension icon to open the chat window. Let's start with a basic request about GitHub Copilot. Enter the following text in the prompt box.
+
+```
+Give me some suggestions for effective ways to use GitHub Copilot.
+```
+![PictureShortCut](./images/pic015.png?raw=true "PictureShortCut")   
+
+2. Now that we have some suggestions, let's ask for some **specific examples** of commands or prompts that can be used with GitHub Copilot. Enter the following question in the prompt box.
+
+```
+What are some examples of specific commands or prompts that can be used to interact with GitHub Copilot?
+```
+![PictureShortCut](./images/pic017.png?raw=true "PictureShortCut")   
+
+3. We've covered some of the basics, let's ask about **how to get the most out of GitHub Copilot**. Enter the following question in the prompt box.
+
+```
+I am new to GitHub Copilot. How do I get the most our of GitHub Copilot ?
+```
+![PictureShortCut](./images/pic019.png?raw=true "PictureShortCut")   
+
+4. One of the keys to getting the most out of AI models is to provide the right **context**. Let's ask about that. Enter the following question in the prompt box.
+
+```
+What does GitHub Copilot use for context when using AI to generate code suggestions?
+```
+![PictureShortCut](./images/pic021.png?raw=true "PictureShortCut")   
+
+5. Speaking of context, there are some **common contextual keywords** that can be used in GitHub Copilot prompts. Let's ask about those. Enter the following question in the prompt box.
+
+```
+What are some common contextual keywords that can be used in GitHub Copilot prompts?
+```
+![PictureShortCut](./images/pic022.png?raw=true "PictureShortCut")   
+
+**Now try this**: Type `@workspace /` in the prompt box and see what GitHub Copilot offers as suggestions. Try the same thing with `@workspace #`. By using these contextual keywords and the `/` and `#` characters, you can get suggestions for commands and prompts that you can use with GitHub Copilot to get more time saving suggestions for using GitHub Copilot.
+
+6. Another key to effectively using GitHub Copilot is to understand the basics of **prompt engineering**. Enter the following question in the prompt box.
+
+```
+Someone mentioned "Prompt Engineering". Explain to me the basics of prompt engineering.
+```
+![PictureShortCut](./images/pic018.png?raw=true "PictureShortCut")   
+
+7. GitHub is always working to ensure that you can get the most out of GitHub Copilot. Let's ask about what version of Chat GPT is being used.
+
+```
+What version of Chat GPT are you using?
+```
+![PictureShortCut](./images/pic016.png?raw=true "PictureShortCut")   
+
+8. GitHub Copilot is always being updated. Let's ask about how we can stay up to date with the latest features and announcements.
+
+```
+How can I stay up to date regarding new GitHub Copilot features and announcements?
+```
+![PictureShortCut](./images/pic020.png?raw=true "PictureShortCut")   
+
+Now that GitHub Copilot has explained the basics and some of the keys to using it effectively, let's try to use it to **generate some code**.
+
+**=========== END OF LAB ===========**
+
+## Lab 2 - Learning how to create good prompts for Copilot
 
 **Purpose: In this lab, we’ll start to learn about Copilot and how it generates code based on the prompts we provide**
 
@@ -137,9 +205,9 @@ function splitURLandReturnComponents
 
 **=========== END OF LAB ===========**
 
-## Lab 2 - Using Copilot to simplify and explain code
+## Lab 3 - Using Copilot to simplify and explain code
 
-1. Create a new file named prime.py. Create it via the same process as we used in Lab 1 by entering the line below in the terminal.
+1. Create a new file named prime.py. Create it via the same process as we used in Lab 2 by entering the line below in the terminal.
 
 ```
 code prime.py
@@ -188,7 +256,7 @@ simplify
 
 **=========== END OF LAB ===========**
 
-## Lab 3 - Using Copilot after the coding
+## Lab 4 - Using Copilot after the coding
 
 **Purpose: In this lab, we’ll see a few other ways to leverage Copilot after the initial coding is done**
 
@@ -252,7 +320,7 @@ As you can see in the output there are a growing number of `Participants` and `V
 
 **=========== END OF LAB ===========**
 
-## Lab 4 - Using Copilot to generate tests
+## Lab 5 - Using Copilot to generate tests
 
 **Purpose: In this lab, we'll see some examples of having Copilot generate tests**
 
@@ -312,7 +380,7 @@ def test_is_prime():
 
 **=========== END OF LAB ===========**
 
-## Lab 5 - Using Copilot to help with SQL
+## Lab 6 - Using Copilot to help with SQL
 
 **Purpose: In this lab, we’ll see some examples of how to have Copilot help with writing SQL**
 
@@ -404,7 +472,7 @@ optimize
     
 **=========== END OF LAB ===========**
 
-## Lab 6 - Teaching Copilot about updates
+## Lab 7 - Teaching Copilot about updates
 
 **Purpose: In this lab, we’ll see an example of what to do when Copilot does not have the most up-to-date information**
 
@@ -448,7 +516,7 @@ write a function to seed a random number generator
 
 **=========== END OF LAB ===========**
 
-## Lab 7 - Kubernetes, YAML generation and the 2021 problem
+## Lab 8 - Kubernetes, YAML generation and the 2021 problem
 
 **Purpose: Show YAML generation and out of date content.**
 
@@ -515,7 +583,7 @@ translate to Go
 
 **=========== END OF LAB ===========**
  
-## Lab 8 - Exploring JavaScript, regular expression generator, auto-generating data
+## Lab 9 - Exploring JavaScript, regular expression generator, auto-generating data
 
 **Purpose: Show JavaScript and regular expression generation, auto-generate routine mappings**
 
@@ -570,11 +638,11 @@ the key is the state abbreviation and the value
 
 **=========== END OF LAB ===========**
 
-## Lab 9 - Agents and CLI
+## Lab 10 - Agents and CLI
 
 **Purpose: In this lab, we'll get some practice using GitHub Copilot agents and the Copilot CLI.**
 
-1. Now let's see how Copilot can help with tasks using agents. First, we'll have Copilot help us commit a change.  Let's use the *explore.go* file we created in Lab 6. If you haven't already, make sure that file is saved. You can do this by:
+1. Now let's see how Copilot can help with tasks using agents. First, we'll have Copilot help us commit a change.  Let's use the *explore.go* file we created in a previous lab. If you haven't already, make sure that file is saved. You can do this by:
 - Select the *explore.go* file
 - Click on the *three-line menu* in the top left.
 - From the menu that comes up, select *File* and then select *Save* (or use the shortcut).
@@ -615,7 +683,7 @@ Which files are using SQL?
 
 **=========== END OF LAB ===========**
 
- ## Lab 10 - GitHub Copilot CLI 
+ ## Lab 11 - GitHub Copilot CLI 
 1. Finally, let's work with the Copilot command line interface. The codespace already has the GitHub CLI installed, so we just need to install the Copilot extension and authenticate. Enter the following in the terminal.
 
 ```
@@ -650,7 +718,7 @@ gh copilot suggest "install terraform"
  
 **=========== END OF LAB ===========**
 
- ## Lab 11 - Being specific in your prompts
+ ## Lab 12 - Being specific in your prompts
 
 **Purpose: In this lab, we'll start with a simple command and then add more and more specificity and see how that impacts the suggestions we receive.**
 
@@ -691,7 +759,7 @@ The key takeaways from this lab are that you can iterate via **GitHub Copilot Ch
 
 **=========== END OF LAB ===========**
 
-## Lab 12 - Stay in the flow with GitHub Copilot
+## Lab 13 - Stay in the flow with GitHub Copilot
 
 **Purpose: In this lab, we'll show how you can use GitHub Copilot Chat to get answers to programming related questions without leaving your editor.**
 
