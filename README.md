@@ -27,7 +27,6 @@ If everything is successful, you will see a banner that says `You have successfu
 - You do this by navigating to the repo, clicking the `Fork` button in the upper right portion of the main project page and following the steps to create a copy in **your-github-userid/copilot-hands-on**.
 
 ![Forking repository](./images/cpho1.png?raw=true "Forking the repository")
-![Forking repository](./images/cpho2.png?raw=true "Forking the repository")
 
 - **Once the fork has been created, open your forked instance of the repo and continue the next steps from there.** 
 
