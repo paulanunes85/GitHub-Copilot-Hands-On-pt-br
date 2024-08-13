@@ -702,6 +702,9 @@ export GITHUB_TOKEN=
 
 ```
 gh copilot explain "ps -aux"
+```
+
+```
 gh copilot suggest "install terraform"
 ```
  
