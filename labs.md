@@ -762,7 +762,9 @@ What is the latest LTS version of Node.js?
 ```
 ![Use Copilot to ask programming questions](./images/pic002.png?raw=true "Use Copilot to ask programming questions")
 
-The response is based on the information available to Copilot at the time the models were trained. There may be a link to an online source for the most current information, e.g. `official Node.js website`. [As of June 2024, there is a new **GitHub Copilot Enterprise** feature](https://github.blog/changelog/2024-06-14-new-copilot-enterprise-features-in-vs-code-preview/): **GitHub Copilot Enterprise** can now search Bing within chat conversations in VS Code to answer questions and find information outside of its general knowledge or your codebase. To get answers enriched with Bing search results, start your message with `@github`. Copilot will intelligently decide when to use Bing. **This feature is CURRENTLY ONLY available in GitHub Copilot Enterprise**  so, the presenter will show you how this works as this is not available in **GitHub Copilot Individual**.
+The response is based on the information available to Copilot at the time the models were trained. There may be a link to an online source for the most current information, e.g. `official Node.js website`. 
+
+[As of June 2024, there is a new **GitHub Copilot Enterprise** feature](https://github.blog/changelog/2024-06-14-new-copilot-enterprise-features-in-vs-code-preview/): **GitHub Copilot Enterprise** can now search Bing within chat conversations in VS Code to answer questions and find information outside of its general knowledge or your codebase. To get answers enriched with Bing search results, start your message with `@github`. Copilot will intelligently decide when to use Bing. **This feature is CURRENTLY ONLY available in GitHub Copilot Enterprise**  so, the presenter will show you how this works as this is not available in **GitHub Copilot Individual**.
 
 2. Let's try using `@github` to get an answer based on a Bing search. Enter the question below in the chat interface.
 
