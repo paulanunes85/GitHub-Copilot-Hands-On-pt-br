@@ -7,7 +7,7 @@ Revision 1.2 - 08/12/24
 **NOTE: To copy and paste in the codespace, you may need to use keyboard commands - `CTRL-C` and `CTRL-V` (Or, the appropriate keyboard commands for your OS).**
 
 ## Introduction
-Welcome to the GitHub Copilot Hands-On Workshop! In this workshop, you will learn how to use GitHub Copilot, the world's most widely adopted AI developer tool. GitHub Copilot is an AI pair programmer that helps you write code faster and with fewer errors. It is powered by OpenAI's Large Language Model (LLM), which is a state-of-the-art language model trained on a diverse range of data sources, including publicly available code from GitHub. GitHub Copilot is available as an extension for Visual Studio Code, Visual Studio & JetBrains and can be used in any language, including Python, JavaScript, TypeScript, Go, Ruby, Java, C++, and many more.
+Welcome to the GitHub Copilot Hands-On Workshop! In this workshop, you will learn how to use GitHub Copilot, the world's most widely adopted AI developer tool. GitHub Copilot is an AI pair programmer that helps you write code faster and with fewer errors. It is powered by OpenAI's Large Language Model (LLM), which is a state-of-the-art language model trained on a diverse range of data sources, including publicly available code from GitHub. GitHub Copilot is available as an extension for Visual Studio Code and can be used in any language, including Python, JavaScript, TypeScript, Go, Ruby, Java, C++, and many more.
 
 ## Before you begin
 
