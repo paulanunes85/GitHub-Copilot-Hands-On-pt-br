@@ -111,23 +111,35 @@ What are some common contextual keywords that can be used in GitHub Copilot prom
 ```
 ![Contextual Keywords](./images/pic022.png?raw=true "Contextual Keywords")   
 
-**Now try this**: Type `/help` in the prompt box to learn about all of the `participants` and `variables` that can be used with GitHub Copilot Chat.
+6. What else can we do in the chat panel?
 
-6. Another key to effectively using GitHub Copilot is to understand the basics of **prompt engineering**. Enter the following question in the prompt box.
+Let's see if we can use chat to learn more about Copilot's capabilities. Enter the following in the chat panel and press `Enter`.
+
+```
+/help
+```
+![Output of /help](./images/pic012.png?raw=true "Output of /help")
+
+As you can see in the output there are a growing number of `Participants` and `Variables` that you can use in **GitHub Copilot Chat**. For example, review the output to answer these questions:
+- Which `Participant` would you use to get the meaning of the selected lines in the terminal?
+- Which `Variable` would you use to feed a specific file to **GitHub Copilot Chat** as context, even though that file may not be in an open editor at the moment? 
+
+
+7. Another key to effectively using GitHub Copilot is to understand the basics of **prompt engineering**. Enter the following question in the prompt box.
 
 ```
 Someone mentioned "Prompt Engineering". Explain to me the basics of prompt engineering.
 ```
 ![Prompt Engineering](./images/pic018.png?raw=true "Prompt Engineering")   
 
-7. GitHub is always working to ensure that you can get the most out of GitHub Copilot. Let's ask about what version of Chat GPT is being used.
+8. GitHub is always working to ensure that you can get the most out of GitHub Copilot. Let's ask about what version of Chat GPT is being used.
 
 ```
 What version of Chat GPT are you using?
 ```
 ![Chat GPT version](./images/pic016.png?raw=true "Chat GPT version")   
 
-8. GitHub Copilot is frequently being updated. Let's ask about how we can stay up to date with the latest features and announcements.
+9. GitHub Copilot is frequently being updated. Let's ask about how we can stay up to date with the latest features and announcements.
 
 ```
 How can I stay up to date regarding new GitHub Copilot features and announcements?
@@ -302,23 +314,6 @@ simplify
 ![Regenerating doc](./images/cdd110.png?raw=true "Regenerating doc")  
 
 9. Once you find a doc example you like, go ahead and click **Accept**.
-
-10. What else can we do in the chat panel?
-
-If it is not already visible, open the **GitHub Copilot Chat** panel. Click on the icon for the **GitHub Copilot Chat** extension in the side panel. 
-
-![Output of /help](./images/pic013.png?raw=true "Output of /help")
-
-Let's see if we can use chat to learn more about Copilot's capabilities. Enter the following in the chat panel and press `Enter`.
-
-```
-/help
-```
-![Output of /help](./images/pic012.png?raw=true "Output of /help")
-
-As you can see in the output there are a growing number of `Participants` and `Variables` that you can use in **GitHub Copilot Chat**. For example, review the output to answer these questions:
-- Which `Participant` would you use to get the meaning of the selected lines in the terminal?
-- Which `Variable` would you use to feed a specific file to **GitHub Copilot Chat** as context, even though that file may not be in an open editor at the moment? 
 
 **=========== END OF LAB ===========**
 
