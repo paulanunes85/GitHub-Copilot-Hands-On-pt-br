@@ -109,7 +109,7 @@ What are some common contextual keywords that can be used in GitHub Copilot prom
 ```
 ![Contextual Keywords](./images/pic022.png?raw=true "Contextual Keywords")   
 
-**Now try this**: Type `@workspace /` in the prompt box and see what GitHub Copilot offers as suggestions. Try the same thing with `@workspace #`. By using these contextual keywords and the `/` and `#` characters, you can get suggestions for commands and prompts that you can use with GitHub Copilot to get more time saving suggestions for using GitHub Copilot.
+**Now try this**: Type `/help` in the prompt box to learn about all of the `participants` and `variables` that can be used with GitHub Copilot Chat.
 
 6. Another key to effectively using GitHub Copilot is to understand the basics of **prompt engineering**. Enter the following question in the prompt box.
 
