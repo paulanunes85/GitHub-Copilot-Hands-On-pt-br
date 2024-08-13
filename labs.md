@@ -513,7 +513,7 @@ write a function to seed a random number generator
 
 **=========== END OF LAB ===========**
 
-## Lab 8 - Kubernetes, YAML generation and the 2021 problem
+## Lab 8 - Kubernetes, YAML generation and ensuring you are using the latest version
 
 **Purpose: Show YAML generation and out of date content.**
 
@@ -552,9 +552,11 @@ How do I execute this?
 what is the latest Kubernetes version?
 ```
 
-7. Notice that it identifies the latest version as 1.22 as of September 2021. This highlights the out-of-date issue with the LLM.
+7. Notice that it identifies the latest version as 1.28 as of October 2023. This highlights the out-of-date issue with the LLM.
 
 ![Answer to latest K8s version](./images/cdd122.png?raw=true "Answer to latest K8s version")
+
+However, GitHub Copilot has evovled to realize that the cuurent model may not have the absolute latest information. So, the response may include a link to the Kubernetes release page: https://github.com/kubernetes/kubernetes/releases. This is an example of how Copilot can help you find the most up-to-date information. Go to that page and see what the latest version is. 
 
 
 8. Let's have Copilot generate some code to work with Kubernetes through the API. In the chat interface, enter the following.
