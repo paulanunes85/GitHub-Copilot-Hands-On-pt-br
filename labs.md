@@ -79,7 +79,9 @@ One way to interact with GitHub Copilot is to use the chat interface. This is a 
 ```
 Give me some suggestions for effective ways to use GitHub Copilot.
 ```
-![Copilot Suggestions](./images/pic015.png?raw=true "Copilot Suggestions")   
+![Copilot Suggestions](./images/pic015.png?raw=true "Copilot Suggestions")  
+
+Notice how GitHub Copilot Chat provides a suggestion for your next question. This is a great way to keep the conversation going.
 
 2. Now that we have some suggestions, let's ask for some **specific examples** of commands or prompts that can be used with GitHub Copilot. Enter the following question in the prompt box.
 
