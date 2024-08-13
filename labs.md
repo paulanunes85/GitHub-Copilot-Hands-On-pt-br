@@ -79,35 +79,35 @@ One way to interact with GitHub Copilot is to use the chat interface. This is a 
 ```
 Give me some suggestions for effective ways to use GitHub Copilot.
 ```
-![PictureShortCut](./images/pic015.png?raw=true "PictureShortCut")   
+![Copilot Suggestions](./images/pic015.png?raw=true "Copilot Suggestions")   
 
 2. Now that we have some suggestions, let's ask for some **specific examples** of commands or prompts that can be used with GitHub Copilot. Enter the following question in the prompt box.
 
 ```
 What are some examples of specific commands or prompts that can be used to interact with GitHub Copilot?
 ```
-![PictureShortCut](./images/pic017.png?raw=true "PictureShortCut")   
+![Copilot Examples](./images/pic017.png?raw=true "Copilot Examples")   
 
 3. We've covered some of the basics, let's ask about **how to get the most out of GitHub Copilot**. Enter the following question in the prompt box.
 
 ```
 I am new to GitHub Copilot. How do I get the most our of GitHub Copilot ?
 ```
-![PictureShortCut](./images/pic019.png?raw=true "PictureShortCut")   
+![Get the most from Copilot](./images/pic019.png?raw=true "Get the most from Copilot")   
 
 4. One of the keys to getting the most out of AI models is to provide the right **context**. Let's ask about that. Enter the following question in the prompt box.
 
 ```
 What does GitHub Copilot use for context when using AI to generate code suggestions?
 ```
-![PictureShortCut](./images/pic021.png?raw=true "PictureShortCut")   
+![Context for Copilot](./images/pic021.png?raw=true "Context for Copilot")   
 
 5. Speaking of context, there are some **common contextual keywords** that can be used in GitHub Copilot prompts. Let's ask about those. Enter the following question in the prompt box.
 
 ```
 What are some common contextual keywords that can be used in GitHub Copilot prompts?
 ```
-![PictureShortCut](./images/pic022.png?raw=true "PictureShortCut")   
+![Contextual Keywords](./images/pic022.png?raw=true "Contextual Keywords")   
 
 **Now try this**: Type `@workspace /` in the prompt box and see what GitHub Copilot offers as suggestions. Try the same thing with `@workspace #`. By using these contextual keywords and the `/` and `#` characters, you can get suggestions for commands and prompts that you can use with GitHub Copilot to get more time saving suggestions for using GitHub Copilot.
 
@@ -116,21 +116,21 @@ What are some common contextual keywords that can be used in GitHub Copilot prom
 ```
 Someone mentioned "Prompt Engineering". Explain to me the basics of prompt engineering.
 ```
-![PictureShortCut](./images/pic018.png?raw=true "PictureShortCut")   
+![Prompt Engineering](./images/pic018.png?raw=true "Prompt Engineering")   
 
 7. GitHub is always working to ensure that you can get the most out of GitHub Copilot. Let's ask about what version of Chat GPT is being used.
 
 ```
 What version of Chat GPT are you using?
 ```
-![PictureShortCut](./images/pic016.png?raw=true "PictureShortCut")   
+![Chat GPT version](./images/pic016.png?raw=true "Chat GPT version")   
 
 8. GitHub Copilot is always being updated. Let's ask about how we can stay up to date with the latest features and announcements.
 
 ```
 How can I stay up to date regarding new GitHub Copilot features and announcements?
 ```
-![PictureShortCut](./images/pic020.png?raw=true "PictureShortCut")   
+![Stay up to date](./images/pic020.png?raw=true "Stay up to date")   
 
 Now that GitHub Copilot has explained the basics and some of the keys to using it effectively, let's try to use it to **generate some code**.
 
