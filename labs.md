@@ -51,13 +51,13 @@ After you switch versions in a codespace, the web client will continue to use th
 
 1. In bottom left of the browser window that's displaying a codespace, click .
 
-2. In the menu, select "Switch to Insiders Version."
+2. In the menu, select `Switch to Insiders Version.`
 
 ![Switch to Insiders Version](./images/pic014.png?raw=true "Switch to Insiders Version")
 
 3. Click **Reload**.
 
-To switch back to the Stable version of VS Code, repeat the process but choose Switch to Stable Version. After you switch back, the codespace will continue to use the Stable version if you stop and restart the codespace. New codespaces that you create and open in the VS Code web client will also use the Stable version.
+To switch back to the Stable version of VS Code, repeat the process but choose `Switch to Stable Version`. After you switch back, the codespace will continue to use the Stable version if you stop and restart the codespace. New codespaces that you create and open in the VS Code web client will also use the Stable version.
 
 ### 5. Let us know how we are doing
 <!-- Instruct lab participants to leverage GitHub disussions found here: https://github.com/DaveOps30/copilot-hands-on/discussions -->
