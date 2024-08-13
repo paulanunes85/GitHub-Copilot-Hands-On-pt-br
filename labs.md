@@ -127,7 +127,7 @@ What version of Chat GPT are you using?
 ```
 ![Chat GPT version](./images/pic016.png?raw=true "Chat GPT version")   
 
-8. GitHub Copilot is always being updated. Let's ask about how we can stay up to date with the latest features and announcements.
+8. GitHub Copilot is frequently being updated. Let's ask about how we can stay up to date with the latest features and announcements.
 
 ```
 How can I stay up to date regarding new GitHub Copilot features and announcements?
