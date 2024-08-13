@@ -9,9 +9,9 @@ These steps **must** be completed prior to starting the actual labs.
 
 ## 1. Ensure that you are signed up for Copilot access. 
 
-If you do not already have access to **GitHub Copilot**, go to **https://gh.io/aiwf2024** to redeem a 7-day free trial of GitHub Copilot. You can also use this QR code. 
+If you do not already have access to **GitHub Copilot**, go to **https://gh.io/cfp-sea24aic** to redeem a 7-day free trial of GitHub Copilot. You can also use this QR code. 
 <p align="center">
-<img width="250" height="250" src="https://github.com/user-attachments/assets/8fc0ef0b-6956-452c-b819-64abd9435e0a"></p>
+<img width="250" height="250" src="./images/GitHub Copilot Coupon 2024-08-14.png"></p>
 
 Fill in any information requested and press the `Apply coupon` button.
 
@@ -27,7 +27,6 @@ If everything is successful, you will see a banner that says `You have successfu
 - You do this by navigating to the repo, clicking the `Fork` button in the upper right portion of the main project page and following the steps to create a copy in **your-github-userid/copilot-hands-on**.
 
 ![Forking repository](./images/cpho1.png?raw=true "Forking the repository")
-![Forking repository](./images/cpho2.png?raw=true "Forking the repository")
 
 - **Once the fork has been created, open your forked instance of the repo and continue the next steps from there.** 
 
@@ -39,7 +38,7 @@ In your forked repository, start a new codespace.
 - Click the `Codespaces` tab.
 - Click `Create codespace on main` to create the codespace.
 
-**This will run for several minutes while it gets everything ready.**
+**This will run for a minute or two while it gets everything ready.**
   
 - After the codespace has been initialized there will be a terminal present.
 
