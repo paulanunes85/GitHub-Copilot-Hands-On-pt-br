@@ -1,704 +1,697 @@
-# Hands-on Workshop
-## GitHub Copilot - The World’s Most Widely Adopted AI Developer Tool
-Revision 1.2 - 08/12/24
+<h1 align="center"> GitHub Copilot - A Ferramenta de Desenvolvimento de IA Mais Amplamente Adotada do Mundo</h1>
+<h5 align="center">Revisão para Português Brasil @paulanunes85 - 2025</h5>
 
-**Versions of dialogs, buttons, etc. shown in screenshots may differ from current version of Copilot**
+## Workshop Prático
 
-**NOTE: To copy and paste in the codespace, you may need to use keyboard commands - `CTRL-C` and `CTRL-V` (Or, the appropriate keyboard commands for your OS).**
+Revisão 1.2 - 12/08/24
 
-## Introduction
-Welcome to the GitHub Copilot Hands-On Workshop! In this workshop, you will learn how to use GitHub Copilot, the world's most widely adopted AI developer tool. GitHub Copilot is an AI pair programmer that helps you write code faster and with fewer errors. It is powered by OpenAI's Large Language Model (LLM), which is a state-of-the-art language model trained on a diverse range of data sources, including publicly available code from GitHub. GitHub Copilot is available as an extension for Visual Studio Code and can be used in any language, including Python, JavaScript, TypeScript, Go, Ruby, Java, C++, and many more.
+**As versões de diálogos, botões, etc. mostradas nas capturas de tela podem diferir da versão atual do Copilot**
 
-## Before you begin
+**NOTA: Para copiar e colar no codespace, você pode precisar usar comandos de teclado - `CTRL-C` e `CTRL-V` (ou os comandos de teclado apropriados para seu sistema operacional).**
 
-### 1. Follow the startup instructions in [the README.md file](README.md) IF NOT ALREADY DONE!
+## Introdução
+Bem-vindo ao Workshop Prático do GitHub Copilot! Neste workshop, você aprenderá a usar o GitHub Copilot, a ferramenta de desenvolvimento de IA mais amplamente adotada do mundo. O GitHub Copilot é um programador parceiro de IA que ajuda você a escrever código mais rápido e com menos erros. Ele é alimentado pelo Modelo de Linguagem Grande (LLM) da OpenAI, que é um modelo de linguagem de última geração treinado em uma ampla gama de fontes de dados, incluindo código disponível publicamente no GitHub. O GitHub Copilot está disponível como uma extensão para o Visual Studio Code e pode ser usado em qualquer linguagem, incluindo Python, JavaScript, TypeScript, Go, Ruby, Java, C++, e muitas outras.
 
-### 2. Reivew the GitHub Copilot Extension installation
+## Antes de começar
 
-One of the advantages of using **GitHub Codespaces** for this workshop is that **GitHub Copilot** is preconfigured for you.  
-1. Open `.devcontainer/devcontainer.json`.
+### 1. Siga as instruções de inicialização no [arquivo README.md](README.md) SE AINDA NÃO FEZ ISSO!
 
-2. If it is not visible, scroll down until you see the `"extensions"` section. 
+### 2. Revise a instalação da Extensão do GitHub Copilot
 
-3. Notice how the `GitHub.copilot` and `GitHub.copilot-chat` extensions are already installed. 
+Uma das vantagens de usar **GitHub Codespaces** para este workshop é que **GitHub Copilot** está pré-configurado para você.
+1. Abra `.devcontainer/devcontainer.json`.
 
-![GitHub Copilot Extensions are already installed](./images/pic005.png?raw=true "GitHub Copilot Extensions are already installed")
+2. Se não estiver visível, role para baixo até ver a seção `"extensions"`.
 
-If you were using the **Visual Studio Code** application, you would have to manually install the **GitHub Copilot** extensions. Refer to [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup) for step-by-step instructions. 
+3. Observe como as extensões `GitHub.copilot` e `GitHub.copilot-chat` já estão instaladas.
 
-**NOTE:** You can also use **GitHub Copilot** in [Visual Studio](https://docs.github.com/en/copilot/quickstart?tool=visualstudio) and [compatible JetBrains IDEs](https://docs.github.com/en/copilot/quickstart?tool=jetbrains). 
+![Extensões do GitHub Copilot já estão instaladas](./images/pic005.png?raw=true "Extensões do GitHub Copilot já estão instaladas")
 
-You can now close `.devcontainer/devcontainer.json` as we do not need this for anything else in this lab.
+Se você estivesse usando o aplicativo **Visual Studio Code**, teria que instalar manualmente as extensões **GitHub Copilot**. Consulte [Configurar o GitHub Copilot no VS Code](https://code.visualstudio.com/docs/copilot/setup) para instruções passo a passo.
 
-### 3. Configure your desktop to make LABS.MD always visible
+**NOTA:** Você também pode usar o **GitHub Copilot** no [Visual Studio](https://docs.github.com/en/copilot/quickstart?tool=visualstudio) e em [IDEs compatíveis com JetBrains](https://docs.github.com/en/copilot/quickstart?tool=jetbrains).
 
-Before we begin, we will configure the browser windows to make the labs.md file always visible. This will allow you to easily switch between the lab instructions and any editor windows you have open.
-1. Select the labs.md tab and drag it down so that it moves into a separate window.
+Agora você pode fechar `.devcontainer/devcontainer.json`, pois não precisaremos dele para mais nada neste laboratório.
 
-2. If you are on Windows, you can "snap" the labs.md tab to one side or another and select the Codespace tab as the adjacent window. 
+### 3. Configure sua área de trabalho para manter o LABS.MD sempre visível
 
-3. Move the vertical slider until you can comfortably see the instructions in labs.md and the Codespace side by side. 
+Antes de começarmos, configuraremos as janelas do navegador para manter o arquivo labs.md sempre visível. Isso permitirá que você alterne facilmente entre as instruções do laboratório e qualquer janela do editor que você tenha aberto.
+1. Selecione a aba labs.md e arraste-a para baixo para que ela se mova para uma janela separada.
 
-Now we can see the labs.md file to one side of the screen while we are executing the actions in the Codespace on the other side of the screen. If needed, adjust the zoom level in either or both windows as desired. 
+2. Se você estiver no Windows, pode "encaixar" a aba labs.md em um lado ou outro e selecionar a aba Codespace como a janela adjacente.
 
-![Split View](./images/pic001.png?raw=true "Split View")
+3. Mova o controle deslizante vertical até que você possa ver confortavelmente as instruções em labs.md e o Codespace lado a lado.
 
-### 4. Switch to the Insiders version of Visual Studio Code in the browser
+Agora podemos ver o arquivo labs.md de um lado da tela enquanto executamos as ações no Codespace do outro lado da tela. Se necessário, ajuste o nível de zoom em uma ou ambas as janelas conforme desejado.
 
-If you are using the VS Code web client, you can switch to the Insiders version of the application to ensure you are working with the very latest version. For more information about this version of VS Code, see [Introducing the Insiders Build](https://code.visualstudio.com/blogs/2016/02/01/introducing_insiders_build) in the VS Code blog.
+![Visualização Dividida](./images/pic001.png?raw=true "Visualização Dividida")
 
-After you switch versions in a codespace, the web client will continue to use the Insiders version if you stop and restart the codespace. New codespaces that you create and open in the VS Code web client will also use the Insiders version.
+### 4. Mude para a versão Insiders do Visual Studio Code no navegador
 
-1. In bottom left of the browser window that's displaying a codespace, click .
+Se você estiver usando o cliente web do VS Code, pode mudar para a versão Insiders do aplicativo para garantir que está trabalhando com a versão mais recente. Para mais informações sobre esta versão do VS Code, veja [Introducing the Insiders Build](https://code.visualstudio.com/blogs/2016/02/01/introducing_insiders_build) no blog do VS Code.
 
-2. In the menu, select `Switch to Insiders Version.`
+Depois de mudar de versão em um codespace, o cliente web continuará a usar a versão Insiders se você parar e reiniciar o codespace. Novos codespaces que você criar e abrir no cliente web do VS Code também usarão a versão Insiders.
 
-![Switch to Insiders Version](./images/pic014.png?raw=true "Switch to Insiders Version")
+1. No canto inferior esquerdo da janela do navegador que está exibindo um codespace, clique.
 
-3. Click **Reload**.
+2. No menu, selecione `Switch to Insiders Version`.
 
-To switch back to the Stable version of VS Code, repeat the process but choose `Switch to Stable Version`. After you switch back, the codespace will continue to use the Stable version if you stop and restart the codespace. New codespaces that you create and open in the VS Code web client will also use the Stable version.
+![Mudar para a Versão Insiders](./images/pic014.png?raw=true "Mudar para a Versão Insiders")
 
-### 5. Let us know how we are doing
-<!-- Instruct lab participants to leverage GitHub disussions found here: https://github.com/DaveOps30/copilot-hands-on/discussions -->
-<!-- Specifically reference the "Workshop Feedback & Suggestions" and "Workshop Issues" categories -->
-We are leveraging [**GitHub Discussions**](https://github.com/DaveOps30/copilot-hands-on/discussions) located in this repository for real time issue reporting, feedback and suggestions.
-- If you encounter any issues or need help, please post in the [`Workshop Issues` discussion category](https://github.com/DaveOps30/copilot-hands-on/discussions/categories/workshop-issues). Be sure to check the existing discussions to see if your question has already been answered. We also have several proctors in the room to help answer your questions and help with issues. Please raise your hand and we will help you. 
-- If you have any feedback or suggestions for improvement, please let us know in the [`Workshop Feedback & Suggestions` discussion category](https://github.com/DaveOps30/copilot-hands-on/discussions/categories/workshop-feedback-suggestions). 
-- When you encounter something you want to share, please post in the [`Show and Tell` discussion category](https://github.com/DaveOps30/copilot-hands-on/discussions/categories/show-and-tell).
+3. Clique em **Reload**.
 
+Para voltar à versão Stable do VS Code, repita o processo, mas escolha `Switch to Stable Version`. Depois de mudar de volta, o codespace continuará a usar a versão Stable se você parar e reiniciar o codespace. Novos codespaces que você criar e abrir no cliente web do VS Code também usarão a versão Stable.
 
-## Lab 1 - Using GitHub Copilot to learn about GitHub Copilot 
+### 5. Deixe-nos saber como estamos indo
+<!-- Instruir os participantes do laboratório a utilizarem as discussões do GitHub encontradas aqui: https://github.com/DaveOps30/copilot-hands-on/discussions -->
+<!-- Referenciar especificamente as categorias "Workshop Feedback & Suggestions" e "Workshop Issues" -->
+Estamos utilizando [**Discussões do GitHub**](https://github.com/DaveOps30/copilot-hands-on/discussions) localizadas neste repositório para relatórios de problemas em tempo real, feedback e sugestões.
+- Se você encontrar algum problema ou precisar de ajuda, por favor, poste na categoria de discussão [`Workshop Issues`](https://github.com/DaveOps30/copilot-hands-on/discussions/categories/workshop-issues). Certifique-se de verificar as discussões existentes para ver se sua pergunta já foi respondida. Também temos vários monitores na sala para ajudar a responder suas perguntas e resolver problemas. Por favor, levante a mão e nós o ajudaremos.
+- Se você tiver algum feedback ou sugestões de melhoria, por favor, nos avise na categoria de discussão [`Workshop Feedback & Suggestions`](https://github.com/DaveOps30/copilot-hands-on/discussions/categories/workshop-feedback-suggestions).
+- Quando você encontrar algo que queira compartilhar, por favor, poste na categoria de discussão [`Show and Tell`](https://github.com/DaveOps30/copilot-hands-on/discussions/categories/show-and-tell).
 
-**Purpose: In this lab, we’ll start to learn about GitHub Copilot by asking GitHub Copilot questions about GitHub Copilot.**
+## Lab 1 - Usando o GitHub Copilot para aprender sobre o GitHub Copilot
 
-One way to interact with GitHub Copilot is to use the chat interface. This is a great way to ask questions about GitHub Copilot since it is a natural language interface and has been trained on a wide variety of resources.
+**Objetivo: Neste laboratório, começaremos a aprender sobre o GitHub Copilot fazendo perguntas ao GitHub Copilot sobre o GitHub Copilot.**
 
-1. Select the Chat extension icon to open the chat window. Let's start with a basic request about GitHub Copilot. Enter the following text in the prompt box.
+Uma maneira de interagir com o GitHub Copilot é usar a interface de chat. Esta é uma ótima maneira de fazer perguntas sobre o GitHub Copilot, pois é uma interface de linguagem natural e foi treinada em uma ampla variedade de recursos.
 
-```
-Give me some suggestions for effective ways to use GitHub Copilot.
-```
-![Copilot Suggestions](./images/pic015.png?raw=true "Copilot Suggestions")  
-
-Notice how GitHub Copilot Chat provides a suggestion for your next question. This is a great way to keep the conversation going. If you like the suggestion, just click on the link to use it. If you don't like the suggestion, just ignore it and enter your own question.
-
-2. Now that we have some suggestions, let's ask for some **specific examples** of commands or prompts that can be used with GitHub Copilot. Enter the following question in the prompt box.
+1. Selecione o ícone da extensão Chat para abrir a janela de chat. Vamos começar com uma solicitação básica sobre o GitHub Copilot. Digite o texto a seguir na caixa de prompt.
 
 ```
-What are some examples of specific commands or prompts that can be used to interact with GitHub Copilot?
+Dê-me algumas sugestões de maneiras eficazes de usar o GitHub Copilot.
 ```
-![Copilot Examples](./images/pic017.png?raw=true "Copilot Examples")   
+![Sugestões do Copilot](./images/pic015.png?raw=true "Sugestões do Copilot")
 
-3. We've covered some of the basics, let's ask about **how to get the most out of GitHub Copilot**. Enter the following question in the prompt box.
+Observe como o GitHub Copilot Chat fornece uma sugestão para sua próxima pergunta. Esta é uma ótima maneira de manter a conversa fluindo. Se você gostar da sugestão, basta clicar no link para usá-la. Se não gostar da sugestão, basta ignorá-la e digitar sua própria pergunta.
 
-```
-I am new to GitHub Copilot. How do I get the most our of GitHub Copilot ?
-```
-![Get the most from Copilot](./images/pic019.png?raw=true "Get the most from Copilot")   
-
-4. One of the keys to getting the most out of AI models is to provide the right **context**. Let's ask about that. Enter the following question in the prompt box.
+2. Agora que temos algumas sugestões, vamos pedir alguns **exemplos específicos** de comandos ou prompts que podem ser usados com o GitHub Copilot. Digite a seguinte pergunta na caixa de prompt.
 
 ```
-What does GitHub Copilot use for context when using AI to generate code suggestions?
+Quais são alguns exemplos de comandos ou prompts específicos que podem ser usados para interagir com o GitHub Copilot?
 ```
-![Context for Copilot](./images/pic021.png?raw=true "Context for Copilot")   
+![Exemplos do Copilot](./images/pic017.png?raw=true "Exemplos do Copilot")
 
-5. Speaking of context, there are some **common contextual keywords** that can be used in GitHub Copilot prompts. Let's ask about those. Enter the following question in the prompt box.
+3. Cobrimos alguns dos conceitos básicos, vamos perguntar sobre **como obter o máximo do GitHub Copilot**. Digite a seguinte pergunta na caixa de prompt.
 
 ```
-What are some common contextual keywords that can be used in GitHub Copilot prompts?
+Sou novo no GitHub Copilot. Como obter o máximo do GitHub Copilot?
 ```
-![Contextual Keywords](./images/pic022.png?raw=true "Contextual Keywords")   
+![Obter o máximo do Copilot](./images/pic019.png?raw=true "Obter o máximo do Copilot")
 
-6. What else can we do in the chat panel?
+4. Uma das chaves para obter o máximo dos modelos de IA é fornecer o **contexto** certo. Vamos perguntar sobre isso. Digite a seguinte pergunta na caixa de prompt.
 
-Let's see if we can use chat to learn more about Copilot's capabilities. Enter the following in the chat panel and press `Enter`.
+```
+O que o GitHub Copilot usa como contexto ao usar IA para gerar sugestões de código?
+```
+![Contexto para o Copilot](./images/pic021.png?raw=true "Contexto para o Copilot")
+
+5. Falando em contexto, existem algumas **palavras-chave contextuais comuns** que podem ser usadas nos prompts do GitHub Copilot. Vamos perguntar sobre elas. Digite a seguinte pergunta na caixa de prompt.
+
+```
+Quais são algumas palavras-chave contextuais comuns que podem ser usadas nos prompts do GitHub Copilot?
+```
+![Palavras-chave contextuais](./images/pic022.png?raw=true "Palavras-chave contextuais")
+
+6. O que mais podemos fazer no painel de chat?
+
+Vamos ver se podemos usar o chat para aprender mais sobre as capacidades do Copilot. Digite o seguinte no painel de chat e pressione `Enter`.
 
 ```
 /help
 ```
-![Output of /help](./images/pic012.png?raw=true "Output of /help")
+![Saída de /help](./images/pic012.png?raw=true "Saída de /help")
 
-As you can see in the output there are a growing number of `Participants` and `Variables` that you can use in **GitHub Copilot Chat**. For example, review the output to answer these questions:
-- Which `Participant` would you use to get the meaning of the selected lines in the terminal?
-- Which `Variable` would you use to feed a specific file to **GitHub Copilot Chat** as context, even though that file may not be in an open editor at the moment? 
+Como você pode ver na saída, há um número crescente de `Participantes` e `Variáveis` que você pode usar no **GitHub Copilot Chat**. Por exemplo, reveja a saída para responder a estas perguntas:
+- Qual `Participante` você usaria para obter o significado das linhas selecionadas no terminal?
+- Qual `Variável` você usaria para fornecer um arquivo específico ao **GitHub Copilot Chat** como contexto, mesmo que esse arquivo não esteja aberto no momento?
 
-
-7. Another key to effectively using GitHub Copilot is to understand the basics of **prompt engineering**. Enter the following question in the prompt box.
-
-```
-Someone mentioned "Prompt Engineering". Explain to me the basics of prompt engineering.
-```
-![Prompt Engineering](./images/pic018.png?raw=true "Prompt Engineering")   
-
-8. GitHub is always working to ensure that you can get the most out of GitHub Copilot. Let's ask about what version of Chat GPT is being used.
+7. Outra chave para usar o GitHub Copilot de forma eficaz é entender os conceitos básicos de **engenharia de prompts**. Digite a seguinte pergunta na caixa de prompt.
 
 ```
-What version of Chat GPT are you using?
+Alguém mencionou "Engenharia de Prompts". Explique-me os conceitos básicos de engenharia de prompts.
 ```
-![Chat GPT version](./images/pic016.png?raw=true "Chat GPT version")   
+![Engenharia de Prompts](./images/pic018.png?raw=true "Engenharia de Prompts")
 
-9. GitHub Copilot is frequently being updated. Let's ask about how we can stay up to date with the latest features and announcements.
+8. O GitHub está sempre trabalhando para garantir que você possa obter o máximo do GitHub Copilot. Vamos perguntar sobre qual versão do Chat GPT está sendo usada.
 
 ```
-How can I stay up to date regarding new GitHub Copilot features and announcements?
+Qual versão do Chat GPT você está usando?
 ```
-![Stay up to date](./images/pic020.png?raw=true "Stay up to date")   
+![Versão do Chat GPT](./images/pic016.png?raw=true "Versão do Chat GPT")
 
-Now that GitHub Copilot has explained the basics and some of the keys to using it effectively, let's try to use it to **generate some code**.
+9. O GitHub Copilot está sendo atualizado frequentemente. Vamos perguntar como podemos nos manter atualizados com os últimos recursos e anúncios.
 
-**=========== END OF LAB ===========**
+```
+Como posso me manter atualizado sobre novos recursos e anúncios do GitHub Copilot?
+```
+![Manter-se atualizado](./images/pic020.png?raw=true "Manter-se atualizado")
 
-## Lab 2 - Learning how to create good prompts for Copilot
+Agora que o GitHub Copilot explicou os conceitos básicos e algumas das chaves para usá-lo de forma eficaz, vamos tentar usá-lo para **gerar algum código**.
 
-**Purpose: In this lab, we’ll start to learn about Copilot and how it generates code based on the prompts we provide**
+**=========== FIM DO LAB ===========**
 
-1. Create a new file. In the terminal, enter
+## Lab 2 - Aprendendo a criar bons prompts para o Copilot
+
+**Objetivo: Neste laboratório, começaremos a aprender sobre o Copilot e como ele gera código com base nos prompts que fornecemos**
+
+1. Crie um novo arquivo. No terminal, digite
 
    ```
    code index.js
    ```
 
-2. Afterwards this file should be open in a tab in the editor.
+2. Depois disso, este arquivo deve estar aberto em uma aba no editor.
 
-3. Let's see how Copilot responds to a generic request. Go to that tab and type in a comment that says
-
-```
-// function to parse data
-```
-4. Hit return and notice the code that Copilot suggested. This is likely more generic than we want, but hit tab to select that line. (Note that you should give Copilot a second to provide code suggestions before moving on to the next line.)
-   
-5. After hitting tab, Copilot will generate another part of the function. (If not, you may need to hit return.) Hit tab to accept it. Continue until you get a complete function (or Copilot stops generating additional code suggestions). One example of what code may look like is below.
-
-![Copilot generated function](./images/cpho5.png?raw=true "Copilot generated function")
-   
-6. This prompt is not specific enough for Copilot to interpret what we want to do.  Highlight the code and delete it, so we can try again.
-
-7. Now type a comment at the top that says
+3. Vamos ver como o Copilot responde a uma solicitação genérica. Vá para essa aba e digite um comentário que diz
 
 ```
-// function to parse url
+// função para analisar dados
 ```
-8. Hit enter and you will probably see a similar line to
+4. Pressione Enter e observe o código que o Copilot sugeriu. Isso provavelmente é mais genérico do que queremos, mas pressione Tab para selecionar essa linha. (Observe que você deve dar um segundo para o Copilot fornecer sugestões de código antes de continuar para a próxima linha.)
+
+5. Depois de pressionar Tab, o Copilot gerará outra parte da função. (Se não, você pode precisar pressionar Enter.) Pressione Tab para aceitá-la. Continue até obter uma função completa (ou o Copilot parar de gerar sugestões adicionais de código). Um exemplo de como o código pode parecer está abaixo.
+
+![Função gerada pelo Copilot](./images/cpho5.png?raw=true "Função gerada pelo Copilot")
+
+6. Este prompt não é específico o suficiente para o Copilot interpretar o que queremos fazer. Destaque o código e exclua-o, para que possamos tentar novamente.
+
+7. Agora digite um comentário no topo que diz
+
+```
+// função para analisar URL
+```
+8. Pressione Enter e você provavelmente verá uma linha semelhante a
 
 ```
 function parseURL(url) {
 ```
 
-9. Just hit Tab to accept it and Enter again. Pause. After that Copilot may or may not offer a suggestion.  If it does, great - you can just hit Tab and accept it.  If not, it may be necessary to further "nudge" Copilot by giving more prompts. Only if you're not getting responses from Copilot, hit return and type the comment below to nudge Copilot.
+9. Basta pressionar Tab para aceitá-la e Enter novamente. Pause. Depois disso, o Copilot pode ou não oferecer uma sugestão. Se oferecer, ótimo - você pode simplesmente pressionar Tab e aceitá-la. Se não, pode ser necessário "cutucar" o Copilot fornecendo mais prompts. Somente se você não estiver recebendo respostas do Copilot, pressione Enter e digite o comentário abaixo para cutucar o Copilot.
 
 ```
-// parse url
+// analisar URL
 ```
-![nudge comment](./images/cdd3.png?raw=true "nudge comment")   
+![comentário de cutucada](./images/cdd3.png?raw=true "comentário de cutucada")
 
-10. Only if needed, hit return and Copilot should start generating suggestions again. Pause after each return to give Copilot a chance to suggest code. Then you can just hit tab to accept each line and then return to get the next part of the code until the function is complete. You may get some blank lines along the way or for some lines you might need to hit Tab twice to accept the code if it is indented more. But just hit return until you get to the end of a function. (You will be at the end when the indentation is done.  Also Copilot may start to suggest another function in comments like // test...)
+10. Somente se necessário, pressione Enter e o Copilot deve começar a gerar sugestões novamente. Pause após cada Enter para dar ao Copilot uma chance de sugerir código. Então você pode simplesmente pressionar Tab para aceitar cada linha e depois Enter para obter a próxima parte do código até que a função esteja completa. Você pode obter algumas linhas em branco ao longo do caminho ou, para algumas linhas, pode precisar pressionar Tab duas vezes para aceitar o código se ele estiver mais indentado. Mas basta pressionar Enter até chegar ao final de uma função. (Você estará no final quando a indentação estiver concluída. Além disso, o Copilot pode começar a sugerir outra função em comentários como // teste...)
 
-11. Suppose you're not happy with that suggestion. Copilot can provide other options for the code. To see those, make sure you are in the editor for the file, then delete all but the first line of the function **and** put the cursor at the end of the first line.
+11. Suponha que você não esteja satisfeito com essa sugestão. O Copilot pode fornecer outras opções para o código. Para vê-las, certifique-se de estar no editor do arquivo, depois exclua todas as linhas, exceto a primeira linha da função **e** coloque o cursor no final da primeira linha.
 
-![reset for altenate choices](./images/cdd105.png?raw=true "reset for alternate choices")   
-   
-12. Hit **Ctrl + Enter**. A second window will open up with other suggestions.
-Be patient - it takes a bit of time for Copilot to generate alternative suggestions. After a moment though, you will have up to 10 alternatives to pick from. These will be of varying quality and completeness. You can scan through these and then pick one if suitable by clicking on the **Accept suggestion #** button under the alternative suggestion.  Note that this will add the code to the existing set, so you may need to do some minor editing afterwards.
+![reset para escolhas alternativas](./images/cdd105.png?raw=true "reset para escolhas alternativas")
 
-![alternative suggestions](./images/cdd106.png?raw=true "alternative suggestions")   
+12. Pressione **Ctrl + Enter**. Uma segunda janela será aberta com outras sugestões.
+Seja paciente - leva um pouco de tempo para o Copilot gerar sugestões alternativas. Depois de um momento, você terá até 10 alternativas para escolher. Estas serão de qualidade e completude variadas. Você pode percorrê-las e escolher uma, se adequada, clicando no botão **Accept suggestion #** abaixo da sugestão alternativa. Observe que isso adicionará o código ao conjunto existente, então você pode precisar fazer algumas edições menores depois.
 
-13. Let's do one more pass at getting a specific prompt for Copilot. Delete all the code currently in index.js. This time we will not enter a comment, but will enter a specific function name.
-Type the following in the empty file. (There are no parentheses after the *splitURLandReturnComponents* text.)  Do not hit tab or return yet.
+![sugestões alternativas](./images/cdd106.png?raw=true "sugestões alternativas")
+
+13. Vamos fazer mais uma tentativa de obter um prompt específico para o Copilot. Exclua todo o código atualmente em index.js. Desta vez, não digitaremos um comentário, mas sim um nome de função específico.
+Digite o seguinte no arquivo vazio. (Não há parênteses após o texto *splitURLandReturnComponents*.) Não pressione Tab ou Enter ainda.
 
 ```
 function splitURLandReturnComponents
 ```
 
-14.  With this function name, Copilot should suggest a full function definition - in fact it may suggest several.  To see the options, hover over the first line and a small window should appear. This window will not how many options there are (probably 2 or 3) and provide "<" and ">" links to toggle between them.  Click on the "<" and ">" buttons to see the differences in the available suggestions.
+14. Com este nome de função, o Copilot deve sugerir uma definição de função completa - na verdade, pode sugerir várias. Para ver as opções, passe o mouse sobre a primeira linha e uma pequena janela aparecerá. Esta janela mostrará quantas opções existem (provavelmente 2 ou 3) e fornecerá links "<" e ">" para alternar entre elas. Clique nos botões "<" e ">" para ver as diferenças nas sugestões disponíveis.
 
-![alternative suggestions inline](./images/cdd5b.png?raw=true "alternative suggestions inline")   
+![sugestões alternativas inline](./images/cdd5b.png?raw=true "sugestões alternativas inline")
 
-15. When you find an alternative you like, go ahead and tab to select it.
+15. Quando encontrar uma alternativa que goste, vá em frente e pressione Tab para selecioná-la.
 
-**=========== END OF LAB ===========**
+**=========== FIM DO LAB ===========**
 
-## Lab 3 - Using Copilot to simplify and explain code
+## Lab 3 - Usando o Copilot para simplificar e explicar código
 
-1. Create a new file named prime.py. Create it via the same process as we used in Lab 2 by entering the line below in the terminal.
+1. Crie um novo arquivo chamado prime.py. Crie-o através do mesmo processo que usamos no Lab 2, digitando a linha abaixo no terminal.
 
 ```
 code prime.py
 ```
 
-2. Start typing a function definition as below
+2. Comece digitando uma definição de função como abaixo
 ```
 def is_prime(n):
 ```
-3. Leave the cursor at the end of the line.
+3. Deixe o cursor no final da linha.
 
-![starting point](./images/cdd104.png?raw=true "starting point") 
+![ponto de partida](./images/cdd104.png?raw=true "ponto de partida")
 
-4. Hit **Ctrl+Enter** to see options
+4. Pressione **Ctrl+Enter** para ver as opções
 
-5. Pick one of the options that is longer and/or more complex (if there is one) and **Accept suggestion #**. If there's not one that's longer/more complex, just pick an alternative one and **Accept suggestion #**.
+5. Escolha uma das opções que seja mais longa e/ou mais complexa (se houver) e **Accept suggestion #**. Se não houver uma que seja mais longa/complexa, basta escolher uma alternativa e **Accept suggestion #**.
 
-![alternative suggestions](./images/cdd34b.png?raw=true "alternative suggestions") 
+![sugestões alternativas](./images/cdd34b.png?raw=true "sugestões alternativas")
 
-6. Highlight the code and select the Chat extension icon to open the chat window.  Tell Copilot to simplify the code by typing in the chat window.
+6. Destaque o código e selecione o ícone da extensão Chat para abrir a janela de chat. Diga ao Copilot para simplificar o código digitando na janela de chat.
 ```
-simplify
+simplificar
 ```
 
-![simplifying via chat box](./images/cdd35.png?raw=true "simplifying via chat box") 
+![simplificando via caixa de chat](./images/cdd35.png?raw=true "simplificando via caixa de chat")
 
-7. Hover over the simplified text and tell Copilot to insert the suggestion at the cursor to replace the text that's currently there. 
+7. Passe o mouse sobre o texto simplificado e diga ao Copilot para inserir a sugestão no cursor para substituir o texto que está lá atualmente.
 
-![replace from chat suggestion](./images/cdd143.png?raw=true "replace from chat suggestion")    
+![substituir pela sugestão do chat](./images/cdd143.png?raw=true "substituir pela sugestão do chat")
 
-8. Now, let's introduce an error into the code to see how Copilot can fix it. Pick an instance of a variable name and change it to one that doesn't exist. For example, change an instance of "n" to "x". 
+8. Agora, vamos introduzir um erro no código para ver como o Copilot pode corrigi-lo. Escolha uma instância de um nome de variável e mude para um que não exista. Por exemplo, mude uma instância de "n" para "x".
 
-![introduce error](./images/cdd37b.png?raw=true "introduce error")   
+![introduzir erro](./images/cdd37b.png?raw=true "introduzir erro")
 
-9. Notice the light bulb icon that has popped up. Click on that, scroll to the bottom (if needed), and you'll have additional options to fix or explain with Copilot.
+9. Observe o ícone de lâmpada que apareceu. Clique nele, role para baixo (se necessário) e você terá opções adicionais para corrigir ou explicar com o Copilot.
 
-![Copilot options inline](./images/cdd38b.png?raw=true "Copilot options inline")   
+![opções do Copilot inline](./images/cdd38b.png?raw=true "opções do Copilot inline")
 
-10. Go ahead and click on the "Fix using Copilot" option.
+10. Vá em frente e clique na opção "Fix using Copilot".
 
-11. After a few moments, it should propose a fix that you can just accept (via the Accept button). You can also click on the *Show Changes* icon to see before/after for the proposed changes. (If it doesn't propose a fix in the dialog, you can skip to step 12 and use the /fix command in chat instead.)
+11. Depois de alguns momentos, ele deve propor uma correção que você pode simplesmente aceitar (via o botão Accept). Você também pode clicar no ícone *Show Changes* para ver antes/depois das alterações propostas. (Se ele não propor uma correção no diálogo, você pode pular para o passo 12 e usar o comando /fix no chat em vez disso.)
 
-![Fixing with Copilot](./images/cdd107a.png?raw=true "Fixing with Copilot")       
+![Corrigindo com o Copilot](./images/cdd107a.png?raw=true "Corrigindo com o Copilot")
 
-12. (Optional) If you'd like, you can go back and make the error again, highlight the code, and then use the /fix command in the chat window to get the same results.
+12. (Opcional) Se desejar, você pode voltar e fazer o erro novamente, destacar o código e depois usar o comando /fix na janela de chat para obter os mesmos resultados.
 
-**=========== END OF LAB ===========**
+**=========== FIM DO LAB ===========**
 
-## Lab 4 - Using Copilot after the coding
+## Lab 4 - Usando o Copilot após a codificação
 
-**Purpose: In this lab, we’ll see a few other ways to leverage Copilot after the initial coding is done**
+**Objetivo: Neste laboratório, veremos algumas outras maneiras de aproveitar o Copilot após a codificação inicial estar concluída**
 
-1. Now that we have some code to work with, let's see what else Copilot can do for us. Let's have it explain the current code in our *prime.py* file.  Select the code. Then, use the **Cmd+I** keys to bring up the Copilot interactive chat dialog.
+1. Agora que temos algum código para trabalhar, vamos ver o que mais o Copilot pode fazer por nós. Vamos pedir para ele explicar o código atual em nosso arquivo *prime.py*. Selecione o código. Em seguida, use as teclas **Cmd+I** para abrir o diálogo de chat interativo do Copilot.
 
-![Interactively telling Copilot to explain code](./images/cdd40b.png?raw=true "Interactively telling Copilot to explain code")
+![Dizendo interativamente ao Copilot para explicar o código](./images/cdd40b.png?raw=true "Dizendo interativamente ao Copilot para explicar o código")
 
-
-2. Tell Copilot to explain the code by typing the command below in the dialog. Hit Enter. Then, you should see the output in the dialog. Click on the *View in Chat* button to see the output in the separate chat window.
+2. Diga ao Copilot para explicar o código digitando o comando abaixo no diálogo. Pressione Enter. Em seguida, você deve ver a saída no diálogo. Clique no botão *View in Chat* para ver a saída na janela de chat separada.
 
 ```
 /explain
 ```
-![Output of interactively telling Copilot to explain code in dialog](./images/cdd144.png?raw=true "Output of interactively telling Copilot to explain code in dialog")
-![Output of interactively telling Copilot to explain code](./images/cdd41b.png?raw=true "Output of interactively telling Copilot to explain code")
+![Saída de dizer interativamente ao Copilot para explicar o código no diálogo](./images/cdd144.png?raw=true "Saída de dizer interativamente ao Copilot para explicar o código no diálogo")
+![Saída de dizer interativamente ao Copilot para explicar o código](./images/cdd41b.png?raw=true "Saída de dizer interativamente ao Copilot para explicar o código")
 
-3. Now, let's do the same request but through a comment. In the *prime.py* file, below the code, enter the following comment and hit Enter.
+3. Agora, vamos fazer a mesma solicitação, mas através de um comentário. No arquivo *prime.py*, abaixo do código, digite o seguinte comentário e pressione Enter.
 ```
-# explain the code above line-by-line
+# explique o código acima linha por linha
 ```
-4. After this, Copilot should start showing the explanation in comments. Just hit tab to accept each line and then Enter to move to the next one.
+4. Depois disso, o Copilot deve começar a mostrar a explicação em comentários. Basta pressionar Tab para aceitar cada linha e depois Enter para passar para a próxima.
 
-![Output of telling Copilot to explain code via comment](./images/cdd42b.png?raw=true "Output of telling Copilot to explain code via comment")
+![Saída de dizer ao Copilot para explicar o código via comentário](./images/cdd42b.png?raw=true "Saída de dizer ao Copilot para explicar o código via comentário")
 
-5. We can also query Copilot inline via asking a question in a comment. Delete the commented explanation and try out the question below. To be clear you can prefix it with :q but that is not required with the chat feature installed.
+5. Também podemos consultar o Copilot inline fazendo uma pergunta em um comentário. Exclua a explicação comentada e tente a pergunta abaixo. Para ser claro, você pode prefixá-la com :q, mas isso não é necessário com o recurso de chat instalado.
 
 ```
-# q: what does the function above do?
-```
-
-![Prompting for what code does with q:](./images/cdd43b.png?raw=true "Prompting for what code does with q:")
-
-6. Finally, let's see how to use the doc feature to automatically document our code. Highlight the actual code.
-
-7. Now, enter **Cmd+I** and enter the **/doc** command. After a few moments, Copilot should generate some documentation for the code. You can go ahead and *Accept* the changes.
-
-![Generated doc for the code](./images/cdd44d.png?raw=true "Generated doc for the code")  
-
-8. While this is useful documentation for the start of the function, we'd like to have more extensive comments in the function body. So,let's get Copilot's help with that. Bring up the chat dialog again with **Cmd+I** and enter the text "verbosely comment this code". After Copilot completes its suggestions, if you're happy with them, you can just click *Accept*. 
-
-![Regenerating doc](./images/cdd110.png?raw=true "Regenerating doc")  
-
-9. Once you find a doc example you like, go ahead and click **Accept**.
-
-**=========== END OF LAB ===========**
-
-## Lab 5 - Using Copilot to generate tests
-
-**Purpose: In this lab, we'll see some examples of having Copilot generate tests**
-
-1. Start out in the *prime.py* file we've been using. Position the cursor below the code.
-
-2. Enter a comment to create unit tests
-```
-# create a function to do 5 unit tests of the code above
+# q: o que a função acima faz?
 ```
 
-3. *If you don't get a suggestion*, enter code below to start nudging. Otherwise you can just accept the suggestion.
+![Solicitando o que o código faz com q:](./images/cdd43b.png?raw=true "Solicitando o que o código faz com q:")
+
+6. Finalmente, vamos ver como usar o recurso doc para documentar automaticamente nosso código. Destaque o código real.
+
+7. Agora, digite **Cmd+I** e digite o comando **/doc**. Depois de alguns momentos, o Copilot deve gerar alguma documentação para o código. Você pode ir em frente e *Accept* as alterações.
+
+![Doc gerado para o código](./images/cdd44d.png?raw=true "Doc gerado para o código")
+
+8. Embora isso seja uma documentação útil para o início da função, gostaríamos de ter comentários mais extensos no corpo da função. Então, vamos obter a ajuda do Copilot com isso. Abra o diálogo de chat novamente com **Cmd+I** e digite o texto "comente este código de forma verbosa". Depois que o Copilot concluir suas sugestões, se você estiver satisfeito com elas, pode simplesmente clicar em *Accept*.
+
+![Regenerando doc](./images/cdd110.png?raw=true "Regenerando doc")
+
+9. Quando encontrar um exemplo de doc que goste, vá em frente e clique em **Accept**.
+
+**=========== FIM DO LAB ===========**
+
+## Lab 5 - Usando o Copilot para gerar testes
+
+**Objetivo: Neste laboratório, veremos alguns exemplos de como o Copilot pode gerar testes**
+
+1. Comece no arquivo *prime.py* que estamos usando. Posicione o cursor abaixo do código.
+
+2. Digite um comentário para criar testes unitários
+```
+# crie uma função para fazer 5 testes unitários do código acima
+```
+
+3. *Se você não receber uma sugestão*, digite o código abaixo para começar a cutucar. Caso contrário, você pode simplesmente aceitar a sugestão.
 
 ```
 def test_is_prime():
 ```
-![generating tests via comment](./images/cdd46a.png?raw=true "generating tests via comment") 
+![gerando testes via comentário](./images/cdd46a.png?raw=true "gerando testes via comentário")
 
-4. What if we didn't know how to test the code at all? Let's ask Copilot. Highlight the *is_prime()* function.
+4. E se não soubéssemos como testar o código? Vamos perguntar ao Copilot. Destaque a função *is_prime()*.
 
-![selecting code](./images/cdd111.png?raw=true "selecting code") 
+![selecionando código](./images/cdd111.png?raw=true "selecionando código")
 
-5. Now, switch to the chat interface and ask Copilot using the following prompt:
+5. Agora, mude para a interface de chat e pergunte ao Copilot usando o prompt a seguir:
 
 ```
-#selection: How do I test this code?
+#selection: Como eu testo este código?
 ```
-![prompting on how to test](./images/cdd112.png?raw=true "prompting on how to test") 
+![solicitando como testar](./images/cdd112.png?raw=true "solicitando como testar")
 
-6. After entering this, you should see an explanation of how to test the code along with suggested testing code. If you expand the reference in the chat output, you can see that it only used the selected lines.
+6. Depois de digitar isso, você deve ver uma explicação de como testar o código junto com o código de teste sugerido. Se você expandir a referência na saída do chat, poderá ver que ele usou apenas as linhas selecionadas.
 
-![testing explanation](./images/cdd113.png?raw=true "testing explanation") 
+![explicação de teste](./images/cdd113.png?raw=true "explicação de teste")
 
-7. Let's see what the shortcut command would do. In the chat dialog enter "/tests" and then Enter. Copilot will want to add the *@workspace* agent onto the command. Just remove the *@workspace* from the beginning of the command. **Do not hit enter yet**.
+7. Vamos ver o que o comando de atalho faria. No diálogo de chat, digite "/tests" e depois Enter. O Copilot vai querer adicionar o agente *@workspace* ao comando. Basta remover o *@workspace* do início do comando. **Não pressione Enter ainda**.
 ```
 /tests
 ```
-8. Type a hash/sharp sign after /tests. At this point, Copilot should present a selection dialog. Choose #file from the menu.
+8. Digite um sinal de hash/cerquilha após /tests. Neste ponto, o Copilot deve apresentar um diálogo de seleção. Escolha #file no menu.
 ```
 /tests #
 ```
-   
-![shortcut test command](./images/cdd140.png?raw=true "shortcut test command")
 
-9. A dialog will pop up near the top of the codespace with a selection of files. Select the *prime.py* file to complete the command. 
+![comando de teste de atalho](./images/cdd140.png?raw=true "comando de teste de atalho")
 
-![file choice dialog](./images/cdd141.png?raw=true "file choice dialog")
+9. Um diálogo aparecerá perto do topo do codespace com uma seleção de arquivos. Selecione o arquivo *prime.py* para completar o comando.
 
-10. Once the command looks like */tests #file:prime.py*, go ahead and hit enter to see the suggested test results.
+![diálogo de escolha de arquivo](./images/cdd141.png?raw=true "diálogo de escolha de arquivo")
 
-![file choice dialog](./images/cdd142.png?raw=true "file choice dialog")
+10. Depois que o comando parecer */tests #file:prime.py*, vá em frente e pressione Enter para ver os resultados do teste sugeridos.
 
-11. We can put this into a new file by hovering over the output in the Chat window, then selecting the "..." from the pop-up menu and selecting "Insert into new file". Go ahead and select that option and then you'll have a new file in your editor with the code that you can save as needed.
+![diálogo de escolha de arquivo](./images/cdd142.png?raw=true "diálogo de escolha de arquivo")
 
-![Insert tests into new file](./images/cdd115a.png?raw=true "Insert tests into new file") 
+11. Podemos colocar isso em um novo arquivo passando o mouse sobre a saída na janela de Chat, depois selecionando os "..." no menu pop-up e selecionando "Insert into new file". Vá em frente e selecione essa opção e então você terá um novo arquivo no seu editor com o código que você pode salvar conforme necessário.
 
+![Inserir testes em um novo arquivo](./images/cdd115a.png?raw=true "Inserir testes em um novo arquivo")
 
+**=========== FIM DO LAB ===========**
 
-**=========== END OF LAB ===========**
+## Lab 6 - Usando o Copilot para ajudar com SQL
 
-## Lab 6 - Using Copilot to help with SQL
+**Objetivo: Neste laboratório, veremos alguns exemplos de como o Copilot pode ajudar a escrever SQL**
 
-**Purpose: In this lab, we’ll see some examples of how to have Copilot help with writing SQL**
-
-1. Create a new file named dev.sql. You can create it via entering the line below in the terminal.
+1. Crie um novo arquivo chamado dev.sql. Você pode criá-lo digitando a linha abaixo no terminal.
 
 ```
 code dev.sql
 ```
-   
-2. Afterwards this file should be open in a tab in the editor. Assume we want to work with a database or database definition that defines a dataset for students, staff, curriculums, courses, schools of study, locations, and registrations for a university system. Let's see what Copilot would generate for a query to get all students in a course - without any other context.
 
-Enter the following comment below and press Tab to accept suggestions. Remember that you may have to hit Enter multiple times to get Copilot to prompt. Or if you don't get a suggestion or only get a comment, try "nudging" Copilot via typing "select". 
+2. Depois disso, este arquivo deve estar aberto em uma aba no editor. Suponha que queremos trabalhar com um banco de dados ou definição de banco de dados que define um conjunto de dados para estudantes, funcionários, currículos, cursos, escolas de estudo, locais e registros para um sistema universitário. Vamos ver o que o Copilot geraria para uma consulta para obter todos os alunos em um curso - sem nenhum outro contexto.
+
+Digite o seguinte comentário abaixo e pressione Tab para aceitar as sugestões. Lembre-se de que você pode precisar pressionar Enter várias vezes para que o Copilot faça o prompt. Ou, se você não receber uma sugestão ou apenas receber um comentário, tente "cutucar" o Copilot digitando "select".
 ```
--- define a select statement to get all students enrolled in a course
+-- defina uma instrução select para obter todos os alunos matriculados em um curso
 ```
-3. Go ahead and save this file as part of the project.  You can do this from the "3-line" menu under File->Save, or just click on the X next to the file's name in it's tab and select to Save it.
+3. Vá em frente e salve este arquivo como parte do projeto. Você pode fazer isso no menu de "3 linhas" em Arquivo->Salvar, ou simplesmente clicar no X ao lado do nome do arquivo na aba e selecionar Salvar.
 
-![Save sql file](./images/cdd96.png?raw=true "Save sql file") 
+![Salvar arquivo sql](./images/cdd96.png?raw=true "Salvar arquivo sql")
 
-4. If the file is no longer open in the tabs, you can select the "Explorer" icon at the top of the sidebar and select the file in the list to open it back up.
+4. Se o arquivo não estiver mais aberto nas abas, você pode selecionar o ícone "Explorer" no topo da barra lateral e selecionar o arquivo na lista para abri-lo novamente.
 
-![Reopening the file](./images/cdd108.png?raw=true "Reopening the file")    
-   
-5. Let's see if we get any different results if we provide Copilot additional context. Open the file create-tables.sql in the editor from the GitHub repository. (You can either select and open it from the file list or use the command below from the terminal.) Scroll through it and take a quick look at the contents.
+![Reabrindo o arquivo](./images/cdd108.png?raw=true "Reabrindo o arquivo")
+
+5. Vamos ver se obtemos resultados diferentes se fornecermos mais contexto ao Copilot. Abra o arquivo create-tables.sql no editor a partir do repositório do GitHub. (Você pode selecioná-lo e abri-lo na lista de arquivos ou usar o comando abaixo no terminal.) Role por ele e dê uma olhada rápida no conteúdo.
 
 ```
 code create-tables.sql
 ```
 
-6. Now with that file open, go back up to the top of the dev.sql file.  Highlight and delete the comment and resulting query from step 2.
-  
-7. Enter the same comment as before to request the query. (Basically, repeat step 2.) See what Copilot suggests this time. You can accept the suggestions or cycle through options. (If you first get a duplicate line as the query, just hit Enter and Copilot should start making more meaningful suggestions.)
+6. Agora, com esse arquivo aberto, volte para o topo do arquivo dev.sql. Destaque e exclua o comentário e a consulta resultante do passo 2.
+
+7. Digite o mesmo comentário de antes para solicitar a consulta. (Basicamente, repita o passo 2.) Veja o que o Copilot sugere desta vez. Você pode aceitar as sugestões ou alternar entre as opções. (Se você primeiro receber uma linha duplicada como a consulta, basta pressionar Enter e o Copilot deve começar a fazer sugestões mais significativas.)
 
 ```
--- define a select statement to get all students enrolled in a course
+-- defina uma instrução select para obter todos os alunos matriculados em um curso
 ```
 
-8. If all goes well, this second pass should generate a query with many more specific references to the names and identifiers used in *create-tables.sql*.  (If not, delete the result and try again.) Take a look at the query and then compare the names/identifiers used to the ones in the *create-tables.sql* file. **This will show that Copilot picks up on context from other files available to it to make better suggestions.** This is one of the key principles of **Prompt Engineering** - providing the right context to Copilot to get the best results. **Remember that Copilot is context-aware and will provide better results with more context.** Take some time now to learn more about Prompt Engineering, check out [Prompt engineering for GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot) from the GitHub documentation. 
+8. Se tudo correr bem, esta segunda passagem deve gerar uma consulta com muitas referências mais específicas aos nomes e identificadores usados no arquivo *create-tables.sql*. (Se não, exclua o resultado e tente novamente.) Dê uma olhada na consulta e depois compare os nomes/identificadores usados com os do arquivo *create-tables.sql*. **Isso mostrará que o Copilot capta o contexto de outros arquivos disponíveis para fazer melhores sugestões.** Este é um dos princípios-chave da **Engenharia de Prompts** - fornecer o contexto certo ao Copilot para obter os melhores resultados. **Lembre-se de que o Copilot é sensível ao contexto e fornecerá melhores resultados com mais contexto.** Aproveite este momento para aprender mais sobre Engenharia de Prompts, confira [Engenharia de prompts para o GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot) na documentação do GitHub.
 
-![New query](./images/cdd97.png?raw=true "New query") 
+![Nova consulta](./images/cdd97.png?raw=true "Nova consulta")
 
-   
-9. In some cases, we might be able to use a separate index to speed up operations.  Let's ask Copilot to create a new index based on the last query. Add the following line after the current query in the file *dev.sql*.
-
-```
--- write an index to improve the performance of the query
-```
-![index](./images/cdd98.png?raw=true "index") 
-
-10. Let's suppose we also want to have a table to capture student attendance. We can ask Copilot to create the table definition for us.
+9. Em alguns casos, podemos usar um índice separado para acelerar as operações. Vamos pedir ao Copilot para criar um novo índice com base na última consulta. Adicione a seguinte linha após a consulta atual no arquivo *dev.sql*.
 
 ```
--- define a table for student attendance to capture attendance by class
+-- escreva um índice para melhorar o desempenho da consulta
 ```
+![índice](./images/cdd98.png?raw=true "índice")
 
-(Here again, if you don't get a meaningful response from Copilot, you may need to nudge it by typing *CREATE*.) In the definition Copilot provided, it may have added a comment for the status in the same format as the comment in the courses.registration table definition in the create-tables.sql file.
-
-![status values](./images/cdd99.png?raw=true "status values") 
-
-11. Copilot can also create stored procedures. Let's ask it to create a new stored procedure for getting a list of enrolled students at a particular location. Let's use the **CMD+I** shortcut. Go to the bottom of the *dev.sql* file, invoke Copilot Chat via the shortcut and then enter the line below in the dialog. You can choose to **Accept** or **Discard** the result.
+10. Suponha que também queremos ter uma tabela para capturar a presença dos alunos. Podemos pedir ao Copilot para criar a definição da tabela para nós.
 
 ```
-define a stored procedure to get course enrollment by location
+-- defina uma tabela para a presença dos alunos para capturar a presença por aula
 ```
-![prompt for stored procedure](./images/cdd100.png?raw=true "prompt for stored procedure") 
-  
-12. We can be more prescriptive with our stored procedure definition.  Let's add a more complex request. Go to the Chat interface extension via clicking on the icon on the tool bar (if its not already opened). In the Chat window, enter the prompt below.
+
+(Aqui novamente, se você não receber uma resposta significativa do Copilot, pode precisar cutucá-lo digitando *CREATE*.) Na definição que o Copilot forneceu, pode ter adicionado um comentário para o status no mesmo formato do comentário na definição da tabela courses.registration no arquivo create-tables.sql.
+
+![valores de status](./images/cdd99.png?raw=true "valores de status")
+
+11. O Copilot também pode criar procedimentos armazenados. Vamos pedir para ele criar um novo procedimento armazenado para obter uma lista de alunos matriculados em um local específico. Vamos usar a interface **CMD+I**. Vá para o final do arquivo *dev.sql*, invoque o Chat do Copilot via o atalho e depois digite a linha abaixo no diálogo. Você pode escolher **Accept** ou **Discard** o resultado.
 
 ```
-define a stored procedure to get instructor details associated with a location
-include instructor details, location details, and courses associated with the instructor
-use instructor_id as the input parameter
+defina um procedimento armazenado para obter a matrícula do curso por local
 ```
-![More extensive stored procedure definition](./images/cdd51.png?raw=true "More extensive stored procedure definition") 
+![prompt para procedimento armazenado](./images/cdd100.png?raw=true "prompt para procedimento armazenado")
 
-13. Finally, let's see Copilot optimize a query for us. Suppose we want to get all the course registrations for September, 2023.  Enter the following query in the file.
+12. Podemos ser mais prescritivos com nossa definição de procedimento armazenado. Vamos adicionar uma solicitação mais complexa. Vá para a interface de Chat via o ícone na barra de ferramentas (se ainda não estiver aberta). Na janela de Chat, digite o prompt abaixo.
+
+```
+defina um procedimento armazenado para obter detalhes do instrutor associados a um local
+inclua detalhes do instrutor, detalhes do local e cursos associados ao instrutor
+use instructor_id como o parâmetro de entrada
+```
+![Definição de procedimento armazenado mais extensa](./images/cdd51.png?raw=true "Definição de procedimento armazenado mais extensa")
+
+13. Finalmente, vamos ver o Copilot otimizar uma consulta para nós. Suponha que queremos obter todos os registros de cursos para setembro de 2023. Digite a seguinte consulta no arquivo.
 
 ```
 select * from courses.registrations where year(registration_date) = 2023 and month(registration_date) = 9;
 ```
 
-14. Ask Copilot to optimize the previous query. You can do this via highlighting the query (make sure to highlight the *entire* query), switch to the separate chat interface and entering "optimize" in the dialog. You can Accept or Discard the suggested optimization after that.
+14. Peça ao Copilot para otimizar a consulta anterior. Você pode fazer isso destacando a consulta (certifique-se de destacar a *consulta inteira*), mude para a interface de chat separada e digite "optimize" no diálogo. Você pode Accept ou Discard a otimização sugerida depois disso.
 
 ```
 optimize
 ```
-![Optimizing a query](./images/cdd116.png?raw=true "Optimizing a query") 
+![Otimização de uma consulta](./images/cdd116.png?raw=true "Otimização de uma consulta")
 
-    
-**=========== END OF LAB ===========**
+**=========== FIM DO LAB ===========**
 
-## Lab 7 - Teaching Copilot about updates
+## Lab 7 - Ensinando o Copilot sobre atualizações
 
-**Purpose: In this lab, we’ll see an example of what to do when Copilot does not have the most up-to-date information**
+**Objetivo: Neste laboratório, veremos um exemplo do que fazer quando o Copilot não tem as informações mais atualizadas**
 
-1. Create a new file called *explore.go* via the same approach as you used to create other files.
+1. Crie um novo arquivo chamado *explore.go* através da mesma abordagem que você usou para criar outros arquivos.
 
-2. This file should now be open in an editor tab. Let's say we want to seed a random number generator with Go. Let's ask Copilot to write a function to do that. Prompt it through the **CMD+I** interface using the statement below. Then you can accept the suggested code.
-
-```
-write a function to seed a random number generator
-```
-![Asking Copilot to write function to seed a random number generator](./images/cdd117.png?raw=true "Asking Copilot to write function to seed a random number generator") 
-
-3. Copilot has probably generated code using the rand.Seed function. The challenge is that as of Go 1.20, the Seed function is deprecated.  Ref: https://cs.opensource.google/go/go/+/refs/tags/go1.21.0:src/math/rand/rand.go;l=394
-
-4. Let's see if Copilot understands that this is deprecrated. We'll ask it via a query. Switch to the separate chat inferface and enter the query below.
+2. Este arquivo deve estar agora aberto em uma aba do editor. Suponha que queremos semear um gerador de números aleatórios com Go. Vamos pedir ao Copilot para escrever uma função para fazer isso. Solicite através da interface **CMD+I** usando a declaração abaixo. Depois você pode aceitar o código sugerido.
 
 ```
-Is the Seed function deprecated in Go?
+escreva uma função para semear um gerador de números aleatórios
 ```
-![Is Seed function deprecated?](./images/cdd118.png?raw=true "Is Seed function deprecated?") 
+![Pedindo ao Copilot para escrever função para semear um gerador de números aleatórios](./images/cdd117.png?raw=true "Pedindo ao Copilot para escrever função para semear um gerador de números aleatórios")
 
-5. Copilot probably responded with no and some info about the function. So one way we can help Copilot understand language updates is by providing the context in our file. So let's start again. Delete the current content in the explore.go file.
+3. O Copilot provavelmente gerou código usando a função rand.Seed. O desafio é que a partir do Go 1.20, a função Seed está obsoleta. Ref: https://cs.opensource.google/go/go/+/refs/tags/go1.21.0:src/math/rand/rand.go;l=394
 
-6. Now, let's provide Copilot some more direct context by copying in updated code examples. After deleting the code block from step 3, copy and paste in the following example of the replacement for the Seed deprecation into your explore.go file.  This is taken from pkg.go.dev/math/rand.
+4. Vamos ver se o Copilot entende que isso está obsoleto. Vamos perguntar a ele através de uma consulta. Mude para a interface de chat separada e digite a consulta abaixo.
 
 ```
-	// Create and seed the generator.
-	// Typically a non-fixed seed should be used, such as time.Now().UnixNano().
-	// Using a fixed seed will produce the same output on every run.
+A função Seed está obsoleta no Go?
+```
+![A função Seed está obsoleta?](./images/cdd118.png?raw=true "A função Seed está obsoleta?")
+
+5. O Copilot provavelmente respondeu com não e algumas informações sobre a função. Então, uma maneira de ajudar o Copilot a entender as atualizações de linguagem é fornecendo o contexto em nosso arquivo. Então, vamos começar novamente. Exclua o conteúdo atual no arquivo explore.go.
+
+6. Agora, vamos fornecer ao Copilot um contexto mais direto copiando exemplos de código atualizados. Depois de excluir o bloco de código do passo 3, copie e cole o seguinte exemplo de substituição para a obsolescência do Seed no seu arquivo explore.go. Isso foi retirado de pkg.go.dev/math/rand.
+
+```
+	// Crie e semeie o gerador.
+	// Normalmente, uma semente não fixa deve ser usada, como time.Now().UnixNano().
+	// Usar uma semente fixa produzirá a mesma saída em cada execução.
 	// r := rand.New(rand.NewSource(99))
 ```
 
-7. Now, let's try the creation of the function again. Underneath the comments and code you just pasted, invoke the dialog via **CMD+I** and enter the statement below again.
+7. Agora, vamos tentar a criação da função novamente. Abaixo dos comentários e código que você acabou de colar, invoque o diálogo via **CMD+I** e digite a declaração abaixo novamente.
 ```
-write a function to seed a random number generator
+escreva uma função para semear um gerador de números aleatórios
 ```
 
-8. This time, the code should be using the same format and NewSource function as you put in the file in step 6. You can just Accept the change. (If you don't see a complete function, but just a single line, try changing the prompt to be "write a complete function to seed a random number generator".
+8. Desta vez, o código deve estar usando o mesmo formato e função NewSource que você colocou no arquivo no passo 6. Você pode simplesmente Accept a alteração. (Se você não vir uma função completa, mas apenas uma única linha, tente mudar o prompt para "escreva uma função completa para semear um gerador de números aleatórios".
 
-![Updated random number gen code after including updated usage](./images/cdd119.png?raw=true "Updated random number gen code after including updated usage")
+![Código atualizado do gerador de números aleatórios após incluir uso atualizado](./images/cdd119.png?raw=true "Código atualizado do gerador de números aleatórios após incluir uso atualizado")
 
-**=========== END OF LAB ===========**
+**=========== FIM DO LAB ===========**
 
-## Lab 8 - Kubernetes, YAML generation and ensuring you are using the latest version
+## Lab 8 - Kubernetes, geração de YAML e garantindo que você está usando a versão mais recente
 
-**Purpose: Show YAML generation and out of date content.**
+**Objetivo: Mostrar geração de YAML e conteúdo desatualizado.**
 
-1. Create a new file - **deployment.yaml**
+1. Crie um novo arquivo - **deployment.yaml**
 
 ```
 code deployment.yaml
 ```
 
-2. Bring up the Copilot Chat dialog via **CMD+I** and enter in the following request.
+2. Abra o diálogo de Chat do Copilot via **CMD+I** e digite a seguinte solicitação.
 
 ```
-write spec for deployment in Kubernetes with 2 replicas and image from busybox
-add command to run in containers: sleep 3600
-add label app: myapp
-add label type: front-end
+escreva uma especificação para implantação no Kubernetes com 2 réplicas e imagem do busybox
+adicione comando para executar nos contêineres: sleep 3600
+adicione rótulo app: myapp
+adicione rótulo type: front-end
 ```
 
-3. After a few moments, you should see it respond with the code. You can just Accept this.
-![Kubernetes manifest](./images/cdd120.png?raw=true "Kubernetes manifest")
+3. Depois de alguns momentos, você deve ver a resposta com o código. Você pode simplesmente Accept isso.
+![Manifesto do Kubernetes](./images/cdd120.png?raw=true "Manifesto do Kubernetes")
 
-4. Suppose we don't know how to execute this code. Let's ask Copilot. Highlight the generated YAML in the deployment.yaml file.  Then go to the larger Chat interface and ask it. Put the following in the Chat interface.
-
-```
-How do I execute this?
-```
-
-5. Copilot should respond with something like the following:
-
-![How to execute deployment](./images/cdd121.png?raw=true "How to execute deployment")
-
-
-6. While we're in the Chat interface, let's ask it for the latest K8s version. Put the following into the dialog.
+4. Suponha que não sabemos como executar este código. Vamos perguntar ao Copilot. Destaque o YAML gerado no arquivo deployment.yaml. Em seguida, vá para a interface de chat maior e pergunte a ele. Coloque o seguinte na interface de chat.
 
 ```
-what is the latest Kubernetes version?
+Como eu executo isso?
 ```
 
-7. Notice that it identifies the latest version as 1.28 as of October 2023. This highlights the out-of-date issue with the LLM.
+5. O Copilot deve responder com algo como o seguinte:
 
-![Answer to latest K8s version](./images/cdd122.png?raw=true "Answer to latest K8s version")
+![Como executar a implantação](./images/cdd121.png?raw=true "Como executar a implantação")
 
-However, GitHub Copilot has evovled to realize that the cuurent model may not have the absolute latest information. So, the response may include a link to the Kubernetes release page: https://github.com/kubernetes/kubernetes/releases. This is an example of how Copilot can help you find the most up-to-date information. Go to that page and see what the latest version is. 
-
-
-8. Let's have Copilot generate some code to work with Kubernetes through the API. In the chat interface, enter the following.
+6. Enquanto estamos na interface de chat, vamos perguntar sobre a versão mais recente do K8s. Coloque o seguinte no diálogo.
 
 ```
-How do I call the K8s API for scaling a deployment to 5 replicas with Python?
+qual é a versão mais recente do Kubernetes?
 ```
 
-9. The results may tell us that we first need to make sure something like PIP is installed. If so, we don't need to worry about this at the moment. Go to the actual generated code in the chat output. Click in that output area and paste the code into a new file via clicking on the "..." and then the *Insert into new file* menu option.
+7. Observe que ele identifica a versão mais recente como 1.28 a partir de outubro de 2023. Isso destaca o problema de desatualização com o LLM.
 
-![Add code to new file](./images/cdd124.png?raw=true "Add code to new file")
+![Resposta para a versão mais recente do K8s](./images/cdd122.png?raw=true "Resposta para a versão mais recente do K8s")
 
+No entanto, o GitHub Copilot evoluiu para perceber que o modelo atual pode não ter as informações mais recentes. Portanto, a resposta pode incluir um link para a página de lançamentos do Kubernetes: https://github.com/kubernetes/kubernetes/releases. Este é um exemplo de como o Copilot pode ajudá-lo a encontrar as informações mais atualizadas. Vá para essa página e veja qual é a versão mais recente.
 
-10. Suppose we change our mind and want to convert this code to Go. Click in the new file, and highlight the new code. Then, in the Chat interface tell it to translate to Go. Then, look in the separate chat output and you should see the equivalent Go code available.
+8. Vamos pedir ao Copilot para gerar algum código para trabalhar com o Kubernetes através da API. Na interface de chat, digite o seguinte.
 
 ```
-translate to Go 
+Como eu chamo a API do K8s para escalar uma implantação para 5 réplicas com Python?
 ```
 
-11. If you look at the output from the Chat interface, you should now have the equivalent Go code available.
+9. Os resultados podem nos dizer que primeiro precisamos garantir que algo como o PIP esteja instalado. Se for o caso, não precisamos nos preocupar com isso no momento. Vá para o código gerado na saída do chat. Clique nessa área de saída e cole o código em um novo arquivo clicando nos "..." e depois na opção de menu *Insert into new file*.
 
-![Go translation](./images/cdd125.png?raw=true "Go translation")
+![Adicionar código a um novo arquivo](./images/cdd124.png?raw=true "Adicionar código a um novo arquivo")
 
-**=========== END OF LAB ===========**
- 
-## Lab 9 - Exploring JavaScript, regular expression generator, auto-generating data
+10. Suponha que mudamos de ideia e queremos converter este código para Go. Clique no novo arquivo e destaque o novo código. Em seguida, na interface de chat, diga para traduzir para Go. Depois, olhe na saída do chat separada e você deve ver o código Go equivalente disponível.
 
-**Purpose: Show JavaScript and regular expression generation, auto-generate routine mappings**
+```
+traduzir para Go
+```
 
-1. Create a new file as **phone.js**
+11. Se você olhar para a saída da interface de chat, agora deve ter o código Go equivalente disponível.
+
+![Tradução para Go](./images/cdd125.png?raw=true "Tradução para Go")
+
+**=========== FIM DO LAB ===========**
+
+## Lab 9 - Explorando JavaScript, gerador de expressões regulares, geração automática de dados
+
+**Objetivo: Mostrar geração de JavaScript e expressões regulares, geração automática de mapeamentos de rotina**
+
+1. Crie um novo arquivo como **phone.js**
 
 ```
 code phone.js
 ```
 
-2. Prompt Copilot to create a function with a regular expression to validate a US phone number. You can use the **CMD+I** interface and just *Accept* the results.
+2. Solicite ao Copilot para criar uma função com uma expressão regular para validar um número de telefone dos EUA. Você pode usar a interface **CMD+I** e simplesmente *Accept* os resultados.
 ```
-create a function to validate any global phone number using a regular expression
+crie uma função para validar qualquer número de telefone global usando uma expressão regular
 ```
-![Regex function to validate phone #](./images/cdd127.png?raw=true "regex function to validate phone #")
+![Função Regex para validar número de telefone](./images/cdd127.png?raw=true "Função Regex para validar número de telefone")
 
-3. Let's tell it to document the function by highlighting the code, invoking **CMD+I** and **/doc**.  You can just Accept the results.
+3. Vamos dizer para ele documentar a função destacando o código, invocando **CMD+I** e **/doc**. Você pode simplesmente Accept os resultados.
 
-![Automatic doc of function](./images/cdd128.png?raw=true "Automatic doc of function")  
+![Documentação automática da função](./images/cdd128.png?raw=true "Documentação automática da função")
 
-4. Now let's see how Copilot can generate some data and mappings for us automatically. Enter the prompt below in the main/separate chat text entry area.
+4. Agora vamos ver como o Copilot pode gerar alguns dados e mapeamentos para nós automaticamente. Digite o prompt abaixo na área de texto principal/separada do chat.
 ```
-create a mapping of all 50 states to area codes where
-the key is the state abbreviation and the value
- is an array of area codes with max 10
+crie um mapeamento de todos os 50 estados para códigos de área onde
+a chave é a abreviação do estado e o valor
+é um array de códigos de área com no máximo 10
 ```
-5. After running this, Copilot will generate the start of a list as shown below. Hover over the output area and click to insert the updates at the cursor in the *phone.js* file. (This assumes the cursor is below the previous function in the file.)
+5. Depois de executar isso, o Copilot gerará o início de uma lista como mostrado abaixo. Passe o mouse sobre a área de saída e clique no ícone que aparece para o terminal. Clique nele para inserir o comando no terminal. Em seguida, pressione Enter.
 
-![Automatic gen of data](./images/cdd129.png?raw=true "Automatic gen of data") 
+![Geração automática de dados](./images/cdd129.png?raw=true "Geração automática de dados")
 
-6. You can scroll to the bottom to confirm if you got entries for all the states. If you didn't, you could create additional prompts for specific ranges of states, change the number of values downward, etc. You could then copy these into your file if you want. In the past GitHub Copilot Chat may have also added the disclaimer at the bottom of the output that these may not be actual values.
-   
-![Disclaimer on actual values](./images/cdd132.png?raw=true "Disclaimer on actual values") 
+6. Você pode rolar até o final para confirmar se obteve entradas para todos os estados. Se não, você pode criar prompts adicionais para intervalos específicos de estados, alterar o número de valores para baixo, etc. Você pode então copiar esses valores para o seu arquivo, se desejar. No passado, o Chat do GitHub Copilot também pode ter adicionado a isenção de responsabilidade na parte inferior da saída de que esses valores podem não ser reais.
 
-7. Let's verify whether or not we have the actual area codes. We can ask Copilot whether or not there the area codes are the actual values. Enter the following in the chat interface.
+![Isenção de responsabilidade sobre valores reais](./images/cdd132.png?raw=true "Isenção de responsabilidade sobre valores reais")
 
-```
-Are those the actual area codes or, is that fabricated data?
-```
-![Verify Area Code data](./images/pic023.png?raw=true "Verify Area Code data") 
-
-This is another exmaple of GitHub Copilot providing additional resoruces to help you verify the latest information. In this case, it's suggesting you go to the North American Numbering Plan Administration (NANPA) where you can find the most up-to-date information on area codes.  You can go to that source and see if the area codes generated by Copilot are accurate. Copilot has evolved to compensate for the fact that the LLM may not have the most up-to-date information.
-
-**=========== END OF LAB ===========**
-
-## Lab 10 - Agents and CLI
-
-**Purpose: In this lab, we'll get some practice using GitHub Copilot agents and the Copilot CLI.**
-
-1. Now let's see how Copilot can help with tasks using agents. First, we'll have Copilot help us commit a change.  Let's use the *explore.go* file we created in a previous lab. If you haven't already, make sure that file is saved. You can do this by:
-- Select the *explore.go* file
-- Click on the *three-line menu* in the top left.
-- From the menu that comes up, select *File* and then select *Save* (or use the shortcut).
-2. Now, let's invoke the **@terminal** agent to ask a common question about how to stage your code changes. Go to the *chat* interface and enter the prompt below. Afterwards, the command to do the staging should show up in the chat output.
+7. Vamos verificar se temos ou não os códigos de área reais. Podemos perguntar ao Copilot se os códigos de área são os valores reais. Digite o seguinte na interface de chat.
 
 ```
-@terminal how do I stage explore.go?
+Esses são os códigos de área reais ou são dados fabricados?
 ```
-![query output](./images/cdd134.png?raw=true "query output") 
+![Verificar dados de código de área](./images/pic023.png?raw=true "Verificar dados de código de área")
 
-3. Hover over the window with the commands in it, and then click on the icon that pops up for the terminal. Click on that to insert the command into the terminal. Then hit return.
+Este é outro exemplo de como o GitHub Copilot fornece recursos adicionais para ajudá-lo a verificar as informações mais recentes. Neste caso, ele está sugerindo que você vá para a Administração do Plano de Numeração da América do Norte (NANPA), onde você pode encontrar as informações mais atualizadas sobre códigos de área. Você pode ir para essa fonte e ver se os códigos de área gerados pelo Copilot são precisos. O Copilot evoluiu para compensar o fato de que o LLM pode não ter as informações mais atualizadas.
 
-![insert into terminal](./images/cdd135.png?raw=true "insert into terminal")
+**=========== FIM DO LAB ===========**
 
-4. Now let's commit our change through the interface and have Copilot suggest a commit message for us. Click on the source control icon in the sidebar (#1 in the figure below). Your *explore.go* file should be selected. In the box titled "Message" above the *Commit bar*, click on the *sparkle icon* at the far right side (#2 in the figure below).
+## Lab 10 - Agentes e CLI
 
-![insert into terminal](./images/cdd136.png?raw=true "insert into terminal")
-5. After this, Copilot should (hopefully) generate an appropriate commit message in that box. You can then copy the message and paste it into a *git commit* command in the terminal. **If you started your codespace from a fork, you can hit return to complete the commit if you want. This is optional. If you started your codespace via the one-click button, you will not have permissions to commit.**
+**Objetivo: Neste laboratório, praticaremos o uso de agentes do GitHub Copilot e do Copilot CLI.**
+
+1. Agora vamos ver como o Copilot pode ajudar com tarefas usando agentes. Primeiro, vamos pedir ao Copilot para nos ajudar a fazer um commit de uma alteração. Vamos usar o arquivo *explore.go* que criamos em um laboratório anterior. Se você ainda não fez isso, certifique-se de que o arquivo esteja salvo. Você pode fazer isso por:
+- Selecione o arquivo *explore.go*
+- Clique no *menu de três linhas* no canto superior esquerdo.
+- No menu que aparecer, selecione *Arquivo* e depois selecione *Salvar* (ou use o atalho).
+2. Agora, vamos invocar o agente **@terminal** para perguntar uma pergunta comum sobre como preparar suas alterações de código. Vá para a interface de *chat* e digite o prompt abaixo. Depois disso, o comando para fazer a preparação deve aparecer na saída do chat.
+
 ```
-git commit -m "<contents of generated commit message from Copilot goes here>"
+@terminal como faço para preparar explore.go?
 ```
-![commit with generated message](./images/cdd137.png?raw=true "commit with generated message")
+![saída da consulta](./images/cdd134.png?raw=true "saída da consulta")
 
-6. Now, let's switch gears and use the **@workspace** agent to help identify where we use certain things in our code. With the *explore.go* file still active in your editor, in the separate *chat* interface , enter the following prompt:
+3. Passe o mouse sobre a janela com os comandos nela e clique no ícone que aparece para o terminal. Clique nele para inserir o comando no terminal. Em seguida, pressione Enter.
+
+![inserir no terminal](./images/cdd135.png?raw=true "inserir no terminal")
+
+4. Agora vamos fazer o commit da nossa alteração através da interface e pedir ao Copilot para sugerir uma mensagem de commit para nós. Clique no ícone de controle de origem na barra lateral (#1 na figura abaixo). Seu arquivo *explore.go* deve estar selecionado. Na caixa intitulada "Mensagem" acima da *barra de commit*, clique no *ícone de brilho* no lado direito (#2 na figura abaixo).
+
+![inserir no terminal](./images/cdd136.png?raw=true "inserir no terminal")
+5. Depois disso, o Copilot deve (esperançosamente) gerar uma mensagem de commit apropriada nessa caixa. Você pode então copiar a mensagem e colá-la em um comando *git commit* no terminal. **Se você iniciou seu codespace a partir de um fork, pode pressionar Enter para concluir o commit, se desejar. Isso é opcional. Se você iniciou seu codespace através do botão de um clique, não terá permissões para fazer commit.**
+```
+git commit -m "<conteúdo da mensagem de commit gerada pelo Copilot vai aqui>"
+```
+![commit com mensagem gerada](./images/cdd137.png?raw=true "commit com mensagem gerada")
+
+6. Agora, vamos mudar de marcha e usar o agente **@workspace** para ajudar a identificar onde usamos certas coisas em nosso código. Com o arquivo *explore.go* ainda ativo no seu editor, na interface de *chat* separada, digite o seguinte prompt:
 
 ```
-Which files are using SQL?
+Quais arquivos estão usando SQL?
 ```
 
-7. After executing this, you'll likely have some suggested information on how to search for files that use SQL in your project with search functionality for Visual Studio Code.
-![initial query response](./images/cdd138.png?raw=true "initial query response")   
-8. This is not the kind of answer we were looking for. Let's repeat the query with the *@workspace* agent.
+7. Depois de executar isso, você provavelmente terá algumas informações sugeridas sobre como procurar arquivos que usam SQL no seu projeto com a funcionalidade de pesquisa do Visual Studio Code.
+![resposta inicial da consulta](./images/cdd138.png?raw=true "resposta inicial da consulta")
+8. Esta não é o tipo de resposta que estávamos procurando. Vamos repetir a consulta com o agente *@workspace*.
 ```
-@workspace Which files are using SQL?
+@workspace Quais arquivos estão usando SQL?
 ```
-9. After executing this, you should see Copilot assessing all of the files in the workspace and then returning a more specific and expected answer.
-![more specific response](./images/cdd139.png?raw=true "more specific response")
+9. Depois de executar isso, você deve ver o Copilot avaliando todos os arquivos no workspace e depois retornando uma resposta mais específica e esperada.
+![resposta mais específica](./images/cdd139.png?raw=true "resposta mais específica")
 
-**=========== END OF LAB ===========**
+**=========== FIM DO LAB ===========**
 
- ## Lab 11 - GitHub Copilot CLI 
-1. Finally, let's work with the Copilot command line interface. The codespace already has the GitHub CLI installed, so we just need to install the Copilot extension and authenticate. Enter the following in the terminal.
+## Lab 11 - GitHub Copilot CLI
+1. Finalmente, vamos trabalhar com a interface de linha de comando do Copilot. O codespace já tem o GitHub CLI instalado, então só precisamos instalar a extensão do Copilot e autenticar. Digite o seguinte no terminal.
 
 ```
 gh extension install github/gh-copilot
 ```
 
-2. After this, you can invoke the copilot command line to see the options available.
+2. Depois disso, você pode invocar o comando de linha de comando do copilot para ver as opções disponíveis.
 
 ```
 gh copilot
 ```
-![Copilot CLI help](./images/cdd94.png?raw=true "Copilot CLI help")
+![Ajuda do Copilot CLI](./images/cdd94.png?raw=true "Ajuda do Copilot CLI")
 
-3. To authenticate, use the command below in the terminal.
+3. Para autenticar, use o comando abaixo no terminal.
 
 ```
 gh auth login --web
 ```
 
-4. Follow the prompts. You'll get a one-time activation code that you should copy and then paste in the browser when prompted. (If you happen to get a message about an issue with GITHUB_TOKEN, you can use the command *export GITHUB_TOKEN=* to clear that.) You'll need to click on the "Authorize GitHub" button on the next screen and then confirm your signin after this to complete the process.
-```   
+4. Siga as instruções. Você receberá um código de ativação único que deve copiar e colar no navegador quando solicitado. (Se você receber uma mensagem sobre um problema com o GITHUB_TOKEN, pode usar o comando *export GITHUB_TOKEN=* para limpá-lo.) Você precisará clicar no botão "Authorize GitHub" na próxima tela e depois confirmar seu login após isso para concluir o processo.
+```
 export GITHUB_TOKEN=
 ```
-![Copilot CLI auth](./images/cdd95.png?raw=true "Copilot CLI auth")
+![Autenticação do Copilot CLI](./images/cdd95.png?raw=true "Autenticação do Copilot CLI")
 
-5. Once you have authenticate, you can try a couple of *gh copilot* commands like the ones below to see an example of how the CLI works.
+5. Depois de autenticar, você pode tentar alguns comandos *gh copilot* como os abaixo para ver um exemplo de como o CLI funciona.
 
 ```
 gh copilot explain "ps -aux"
@@ -707,136 +700,134 @@ gh copilot explain "ps -aux"
 ```
 gh copilot suggest "install terraform"
 ```
- 
-**=========== END OF LAB ===========**
 
- ## Lab 12 - Being specific in your prompts
+**=========== FIM DO LAB ===========**
 
-**Purpose: In this lab, we'll start with a simple command and then add more and more specificity and see how that impacts the suggestions we receive.**
+## Lab 12 - Sendo específico em seus prompts
 
-1. The context for this exercise is that we want to create a **GitHub Actions** workflow to build a **.NET Core** application and deploy it to **Azure Web Apps**. This will also demonstrate that **GitHub Copilot** goes beyond traditional programming and can help you with many other things like CI/CD workflow files. Enter the prompt below in the chat interface.
+**Objetivo: Neste laboratório, começaremos com um comando simples e depois adicionaremos mais e mais especificidade e veremos como isso impacta as sugestões que recebemos.**
 
-```
-Create a GitHub Actions workflow to build a .NET Core application and deploy it to Azure Web Apps.
-```
-![Generate a GitHub Actions Workflow](./images/pic009.png?raw=true "Generate a GitHub Actions Workflow")
-
-Take some time to analyze the resulting **GitHub Actions** workflow. You can see that it is referencing several Actions that come from the **GitHub Marketplace**, what a time saver! We did not have to manually figure out and look up the multiple Actions that need to be used, GitHub Copilot did that for us. Your suggestion may include an important note insturucting you to properly manage the `AZURE_WEBAPP_PUBLISH_PROFILE`. This is a form of a **secret** that we would want manage very diligently to ensure that it does not fall into the hands of a hacker. We can use **Azure OpenID Connect** to avoid having to manage and store secrets like an `AZURE_WEBAPP_PUBLISH_PROFILE`. 
-
-2. Let's refine the prompt to be more specific and see what happens. Enter the refined prompt below in the chat interface.
+1. O contexto para este exercício é que queremos criar um **GitHub Actions** workflow para construir uma aplicação **.NET Core** e implantá-la no **Azure Web Apps**. Isso também demonstrará que **GitHub Copilot** vai além da programação tradicional e pode ajudá-lo com muitas outras coisas, como arquivos de workflow de CI/CD. Digite o prompt abaixo na interface de chat.
 
 ```
-Create a GitHub Actions workflow to build a .NET Core application and deploy it to Azure Web Apps.
-Use "OpenID Connect" to authenticate with Azure.
+Crie um workflow do GitHub Actions para construir uma aplicação .NET Core e implantá-la no Azure Web Apps.
 ```
-![Generate a GitHub Actions Workflow](./images/pic010.png?raw=true "Generate a GitHub Actions Workflow")
+![Gerar um Workflow do GitHub Actions](./images/pic009.png?raw=true "Gerar um Workflow do GitHub Actions")
 
-There may now be a `Login to Azure` step that is needed to work with **Azure OpenID Connect**. Also, the important notes will refer to `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. These are just identifiers for your specific Azure environment and not a form of a secret that a hacker could use to access and change your web app. By adding more specifics to our prompt, we've made our deployment more secure. 
+Reserve um tempo para analisar o **GitHub Actions** workflow resultante. Você pode ver que ele está referenciando várias Actions que vêm do **GitHub Marketplace**, que economia de tempo! Não tivemos que descobrir manualmente e procurar as várias Actions que precisam ser usadas, o GitHub Copilot fez isso por nós. Sua sugestão pode incluir uma nota importante instruindo você a gerenciar adequadamente o `AZURE_WEBAPP_PUBLISH_PROFILE`. Esta é uma forma de **segredo** que gostaríamos de gerenciar muito diligentemente para garantir que não caia nas mãos de um hacker. Podemos usar **Azure OpenID Connect** para evitar ter que gerenciar e armazenar segredos como um `AZURE_WEBAPP_PUBLISH_PROFILE`.
 
-3. This is a great start but, you should also include quality checks in your CI/CD workflow like running automated tests, load tests, etc. We can use the **Playwright** testing framework and **Azure Load Testing** for this. Let's add some more specifics to the prompt. Enter the refined prompt below in the chat interface.
-
-```
-Create a GitHub Actions workflow to build a .NET Core application and deploy it to Azure Web Apps. 
-Use "OpenID Connect" to authenticate with Azure. 
-After the app is deployed run a set of functional tests using the Playwright framework
-then, run a set of load tests using Azure Load Tests.
-```
-Take a look at the new workflow and related notes. By adding more and more specifics to our prompt we were able to get a more comprehensive **GitHub Actions** workflow and, we did not have to break our flow, leave the IDE and go to the GitHub Marketplace to figure out which Actions to use. 
-
-Now that we have this workflow, we can ask GitHub Copilot to insert the suggested workflow into a new file in our workspace. To do this you would hover over the top of the suggestion, click on the `...` and select `Insert into New File`. You may also want to copy the related notes from that chat window and paste those into your planning and tracking tool (e.g. **GitHub Issues and Projects**, Jira, Azure Boards, etc.).
-
-![Generate a GitHub Actions Workflow](./images/pic011.png?raw=true "Generate a GitHub Actions Workflow")
-
-The key takeaways from this lab are that you can iterate via **GitHub Copilot Chat** by adding more and more specifics to end up with a very comprehensive suggestion. So, as you are crafting prompts be sure to think about what specifics you should add to help ensure that **GitHub Copilot** provides suggestions that meet all of your requirements for scalability, maintainability, robustness, etc. Also, **GitHub Copilot** can be used to generate a lot more than just traditional "code". Where else might you want to leverage **GitHub Copilot**? Creating Infrastructure as Code files such as Terraform files? Writing PowerShell scripts? **GitHub Copilot** is your AI Pair Programmer for just about anything. 
-
-**=========== END OF LAB ===========**
-
-## Lab 13 - Stay in the flow with GitHub Copilot
-
-**Purpose: In this lab, we'll show how you can use GitHub Copilot Chat to get answers to programming related questions without leaving your editor.**
-
-1. Use the chat interface to ask a question about a programming topic. For example, you can ask about the latest version of a programming language, how to use a specific function, or how to solve a specific problem. Enter the question below in the chat interface.
+2. Vamos refinar o prompt para ser mais específico e ver o que acontece. Digite o prompt refinado abaixo na interface de chat.
 
 ```
-What is the latest LTS version of Node.js?
+Crie um workflow do GitHub Actions para construir uma aplicação .NET Core e implantá-la no Azure Web Apps.
+Use "OpenID Connect" para autenticar com o Azure.
 ```
-![Use Copilot to ask programming questions](./images/pic002.png?raw=true "Use Copilot to ask programming questions")
+![Gerar um Workflow do GitHub Actions](./images/pic010.png?raw=true "Gerar um Workflow do GitHub Actions")
 
-The response is based on the information available to Copilot at the time the models were trained. There may be a link to an online source for the most current information, e.g. `official Node.js website`. 
+Agora pode haver um passo `Login to Azure` que é necessário para trabalhar com **Azure OpenID Connect**. Além disso, as notas importantes se referirão a `AZURE_CLIENT_ID`, `AZURE_TENANT_ID` e `AZURE_SUBSCRIPTION_ID`. Estes são apenas identificadores para o seu ambiente específico do Azure e não uma forma de segredo que um hacker poderia usar para acessar e alterar seu aplicativo web. Ao adicionar mais especificidade ao nosso prompt, tornamos nossa implantação mais segura.
 
-[As of June 2024, there is a new **GitHub Copilot Enterprise** feature](https://github.blog/changelog/2024-06-14-new-copilot-enterprise-features-in-vs-code-preview/): **GitHub Copilot Enterprise** can now search Bing within chat conversations in VS Code to answer questions and find information outside of its general knowledge or your codebase. To get answers enriched with Bing search results, start your message with `@github`. Copilot will intelligently decide when to use Bing. **This feature is CURRENTLY ONLY available in GitHub Copilot Enterprise**  so, the presenter will show you how this works as this is not available in **GitHub Copilot Individual**.
-
-2. Let's try using `@github` to get an answer based on a Bing search. Enter the question below in the chat interface.
-
-```
-@github What is the latest LTS version of Node.js?
-```
-![Use Bing with Copilot to ask programming questions](./images/pic003.png?raw=true "Use Bing with Copilot to ask programming questions")
-
-This response is enriched with Bing search results. You can use this feature to get answers to questions that are not covered by Copilot's general knowledge or your codebase.
-
-3. Let's see if we can use `@github` to learn about the advantages of using **GitHub Copilot**. Enter the question below in the chat interface.
+3. Este é um ótimo começo, mas você também deve incluir verificações de qualidade em seu workflow de CI/CD, como executar testes automatizados, testes de carga, etc. Podemos usar o framework de testes **Playwright** e **Azure Load Testing** para isso. Vamos adicionar mais especificidade ao prompt. Digite o prompt refinado abaixo na interface de chat.
 
 ```
-@github Why is GitHub Copilot better and more secure to use than prompting ChatGPT and copy/pasting the code back into my IDE?
+Crie um workflow do GitHub Actions para construir uma aplicação .NET Core e implantá-la no Azure Web Apps.
+Use "OpenID Connect" para autenticar com o Azure.
+Depois que o aplicativo for implantado, execute um conjunto de testes funcionais usando o framework Playwright
+e depois, execute um conjunto de testes de carga usando o Azure Load Tests.
 ```
-Does the response help you understand why GitHub Copilot is better and **more secure** to use than prompting ChatGPT and copy/pasting the code back into your IDE?
+Dê uma olhada no novo workflow e nas notas relacionadas. Ao adicionar mais e mais especificidade ao nosso prompt, conseguimos um **GitHub Actions** workflow mais abrangente e não tivemos que interromper nosso fluxo, sair do IDE e ir ao GitHub Marketplace para descobrir quais Actions usar.
 
-4. Learn how to get started with the **Azure OpenAI Service**
+Agora que temos esse workflow, podemos pedir ao GitHub Copilot para inserir o workflow sugerido em um novo arquivo em nosso workspace. Para fazer isso, você deve passar o mouse sobre o topo da sugestão, clicar nos `...` e selecionar `Insert into New File`. Você também pode querer copiar as notas relacionadas dessa janela de chat e colá-las em sua ferramenta de planejamento e rastreamento (por exemplo, **GitHub Issues and Projects**, Jira, Azure Boards, etc.).
 
-You can leverage the **Azure OpenAI Service** to build your own copilot and generative AI applications. But, how do you get started? Let's ask GitHub Copilot. Enter the question below in the chat interface, **be sure to replace `[language X]` with the language you are most likely to use, e.g. `JavaScript` or, `Python` or, `Java`, etc.** 
+![Gerar um Workflow do GitHub Actions](./images/pic011.png?raw=true "Gerar um Workflow do GitHub Actions")
+
+Os principais pontos deste laboratório são que você pode iterar através do **GitHub Copilot Chat** adicionando mais e mais especificidade para acabar com uma sugestão muito abrangente. Portanto, ao criar prompts, certifique-se de pensar sobre quais especificidades você deve adicionar para ajudar a garantir que o **GitHub Copilot** forneça sugestões que atendam a todos os seus requisitos de escalabilidade, manutenção, robustez, etc. Além disso, **GitHub Copilot** pode ser usado para gerar muito mais do que apenas "código" tradicional. Onde mais você gostaria de aproveitar o **GitHub Copilot**? Criando arquivos de Infraestrutura como Código, como arquivos Terraform? Escrevendo scripts PowerShell? **GitHub Copilot** é seu Programador Parceiro de IA para quase tudo.
+
+**=========== FIM DO LAB ===========**
+
+## Lab 13 - Fique no fluxo com o GitHub Copilot
+
+**Objetivo: Neste laboratório, mostraremos como você pode usar o GitHub Copilot Chat para obter respostas a perguntas relacionadas à programação sem sair do seu editor.**
+
+1. Use a interface de chat para fazer uma pergunta sobre um tópico de programação. Por exemplo, você pode perguntar sobre a versão mais recente de uma linguagem de programação, como usar uma função específica ou como resolver um problema específico. Digite a pergunta abaixo na interface de chat.
 
 ```
-@github We use [language X] for application development. How would I get started with Azure OpenAI?
+Qual é a versão LTS mais recente do Node.js?
 ```
-![Visual for step 1](./images/pic006.png?raw=true "Visual for step 1")
+![Use o Copilot para fazer perguntas de programação](./images/pic002.png?raw=true "Use o Copilot para fazer perguntas de programação")
 
-This provides a wealth of information. To save the response, right-click anywhere in the response and select `Copy`. Now you can paste the response somewhere that you can reference later such as a **GitHub Issue** or, a **GitHub Discussion post**.
+A resposta é baseada nas informações disponíveis para o Copilot no momento em que os modelos foram treinados. Pode haver um link para uma fonte online para as informações mais atuais, por exemplo, `site oficial do Node.js`.
 
-5. While we can use `@github` to get answers to programming questions, we cannot use GitHub Copilot Chat to ask general questions. For example, you cannot ask about the weather or the latest sports scores. Enter the question below in the chat interface.
+[A partir de junho de 2024, há um novo recurso do **GitHub Copilot Enterprise**](https://github.blog/changelog/2024-06-14-new-copilot-enterprise-features-in-vs-code-preview/): **GitHub Copilot Enterprise** agora pode pesquisar no Bing dentro das conversas de chat no VS Code para responder perguntas e encontrar informações fora de seu conhecimento geral ou de seu código. Para obter respostas enriquecidas com resultados de pesquisa do Bing, comece sua mensagem com `@github`. O Copilot decidirá inteligentemente quando usar o Bing. **Este recurso está ATUALMENTE DISPONÍVEL APENAS no GitHub Copilot Enterprise**, então o apresentador mostrará como isso funciona, pois não está disponível no **GitHub Copilot Individual**.
+
+2. Vamos tentar usar `@github` para obter uma resposta baseada em uma pesquisa no Bing. Digite a pergunta abaixo na interface de chat.
 
 ```
-@github Who won the Super Bowl in 1986?
+@github Qual é a versão LTS mais recente do Node.js?
 ```
-![GitHub Copilot is only for programming](./images/pic004.png?raw=true "GitHub Copilot is only for programming")
+![Use o Bing com o Copilot para fazer perguntas de programação](./images/pic003.png?raw=true "Use o Bing com o Copilot para fazer perguntas de programação")
 
-That's ok. Everyone knows that [the Chicago Bears won Super Bowl XX in 1986](https://www.chicagotribune.com/2016/01/26/chicago-bears-win-super-bowl-xx/). 😉
+Esta resposta é enriquecida com resultados de pesquisa do Bing. Você pode usar este recurso para obter respostas a perguntas que não são cobertas pelo conhecimento geral do Copilot ou pelo seu código.
 
-![Chicago Bears win Super Bowl XX](https://www.chicagotribune.com/wp-content/uploads/migration/2016/01/26/QP6TV57DS5ABJDLYCFXR6BGJEM.jpg?w=1200 "Chicago Bears win Super Bowl XX")
+3. Vamos ver se podemos usar `@github` para aprender sobre as vantagens de usar o **GitHub Copilot**. Digite a pergunta abaixo na interface de chat.
 
+```
+@github Por que o GitHub Copilot é melhor e mais seguro de usar do que solicitar ao ChatGPT e copiar/colar o código de volta no meu IDE?
+```
+A resposta ajuda você a entender por que o GitHub Copilot é melhor e **mais seguro** de usar do que solicitar ao ChatGPT e copiar/colar o código de volta no seu IDE?
 
-**=========== END OF LAB ===========**
+4. Aprenda como começar com o **Azure OpenAI Service**
 
-## Wrap up and next steps
+Você pode aproveitar o **Azure OpenAI Service** para construir seu próprio copiloto e aplicativos de IA generativa. Mas, como começar? Vamos perguntar ao GitHub Copilot. Digite a pergunta abaixo na interface de chat, **certifique-se de substituir `[language X]` pela linguagem que você provavelmente usará, por exemplo, `JavaScript` ou `Python` ou `Java`, etc.**
 
-**GitHub Copilot can be used with almost any language!**
-As you have seen in this lab, you can use GitHub Copilot to generate code in almost any language. You can also use it to generate Markdown. **GitHub Copilot** was used to generate the content of this lab guide.
+```
+@github Usamos [language X] para desenvolvimento de aplicativos. Como eu começaria com o Azure OpenAI?
+```
+![Visual para o passo 1](./images/pic006.png?raw=true "Visual para o passo 1")
 
-### Check out these resources to dive in and learn more
-If you have completed all the labs, and there is still time left in today's session you can check out the resources in [**GitHub-Copilot-Resources.md**](https://github.com/DaveOps30/copilot-hands-on/blob/main/GitHub-Copilot-Resources.md). 
+Isso fornece uma riqueza de informações. Para salvar a resposta, clique com o botão direito em qualquer lugar da resposta e selecione `Copiar`. Agora você pode colar a resposta em algum lugar que possa consultar mais tarde, como um **GitHub Issue** ou uma **postagem de Discussão do GitHub**.
 
-This resource list has been carefully curated to help you to learn more about GitHub Copilot, how to use it effectively, what is coming in the future, what are GitHub customers saying and more. There is even a YouTube playlist that includes the latest videos from the GitHub Developer Relations team and others from GitHub. 
+5. Embora possamos usar `@github` para obter respostas a perguntas de programação, não podemos usar o GitHub Copilot Chat para fazer perguntas gerais. Por exemplo, você não pode perguntar sobre o clima ou os últimos resultados esportivos. Digite a pergunta abaixo na interface de chat.
 
-Add https://github.com/DaveOps30/copilot-hands-on/blob/main/GitHub-Copilot-Resources.md to your browser favorites for easy access to these resources at any time in the future.
+```
+@github Quem ganhou o Super Bowl em 1986?
+```
+![O GitHub Copilot é apenas para programação](./images/pic004.png?raw=true "O GitHub Copilot é apenas para programação")
 
-### Looking to learn more? Check out "Microsoft Learn"
-[Microsoft Learn](https://learn.microsoft.com/) has a plethora of learning paths. If you still have time in this session and/or you want to continue learning more about **GitHub Copilot**, check out the [**GitHub Copilot Fundamentals - Understand the AI pair programmer** learning path](https://learn.microsoft.com/training/paths/copilot/). Here are a few modules that serve as great follow ups to this lab: 
-- [Introduction to prompt engineering with GitHub Copilot](https://learn.microsoft.com/training/modules/introduction-prompt-engineering-with-github-copilot/) - Discover the essentials of creating effective prompts with GitHub Copilot. Uncover techniques to transform your coding comments into precise, actionable code, enhancing your development workflow. (26 min)
-- [Introduction to GitHub Copilot for Business](https://learn.microsoft.com/training/modules/introduction-to-github-copilot-for-business/) - Learn about the difference between **GitHub Copilot for Business** versus **GitHub Copilot for Individuals**, specific use cases and customer stories for GitHub Copilot for Business, and how to enable it. (23 min)
-- [Introduction to GitHub Copilot Enterprise](https://learn.microsoft.com/training/modules/introduction-to-github-copilot-enterprise/) - Learn about the differences between **GitHub Copilot for Enterprise**, for Business, and for Individuals. Examine specific use cases, including how to enable and use **GitHub Copilot Enterprise**. (17 min)
+Tudo bem. Todo mundo sabe que [os Chicago Bears ganharam o Super Bowl XX em 1986](https://www.chicagotribune.com/2016/01/26/chicago-bears-win-super-bowl-xx/). 😉
 
-Book mark **https://learn.microsoft.com/** so that you can explore other **Learning Paths** in the future such as [**Develop Generative AI solutions with Azure OpenAI Service**](https://learn.microsoft.com/training/paths/develop-ai-solutions-azure-openai/)
+![Chicago Bears ganham o Super Bowl XX](https://www.chicagotribune.com/wp-content/uploads/migration/2016/01/26/QP6TV57DS5ABJDLYCFXR6BGJEM.jpg?w=1200 "Chicago Bears ganham o Super Bowl XX")
 
+**=========== FIM DO LAB ===========**
 
-### Please let us know what you think of GitHub Copilot and this workshop
-<!-- Instruct lab participants to answer the poll questions found here: https://github.com/DaveOps30/copilot-hands-on/discussions -->
-<!-- Specifically reference the "Workshop Survey" poll questions. Also, mention that they can use the "Workshop Feedback & Suggestions" for general feedback and/or suggestions. -->
-We would love to hear your thoughts on GitHub Copilot and this workshop. 
-- Please take a moment to answer the poll questions in the [**Workshop Survey**](https://github.com/DaveOps30/copilot-hands-on/discussions/categories/workshop-survey). 
-  - For each of the two questions, simply select your response and click the "Vote" button. 
-  - Please feel free to leave a comment to let us know what you really liked and/or what we could do differently to make this workshop more valuable in the future. 
-- If you have any feedback or suggestions for improvement, please let us know in the [`Workshop Feedback & Suggestions` discussion category](https://github.com/DaveOps30/copilot-hands-on/discussions/categories/workshop-feedback-suggestions).
+## Conclusão e próximos passos
+
+**O GitHub Copilot pode ser usado com quase qualquer linguagem!**
+Como você viu neste laboratório, você pode usar o GitHub Copilot para gerar código em quase qualquer linguagem. Você também pode usá-lo para gerar Markdown. **GitHub Copilot** foi usado para gerar o conteúdo deste guia de laboratório.
+
+### Confira esses recursos para se aprofundar e aprender mais
+Se você completou todos os laboratórios e ainda há tempo restante na sessão de hoje, você pode conferir os recursos em [**GitHub-Copilot-Resources.md**](https://github.com/DaveOps30/copilot-hands-on/blob/main/GitHub-Copilot-Resources.md).
+
+Esta lista de recursos foi cuidadosamente selecionada para ajudá-lo a aprender mais sobre o GitHub Copilot, como usá-lo de forma eficaz, o que está por vir no futuro, o que os clientes do GitHub estão dizendo e mais. Há até uma playlist no YouTube que inclui os vídeos mais recentes da equipe de Relações com Desenvolvedores do GitHub e outros do GitHub.
+
+Adicione https://github.com/DaveOps30/copilot-hands-on/blob/main/GitHub-Copilot-Resources.md aos seus favoritos do navegador para fácil acesso a esses recursos a qualquer momento no futuro.
+
+### Quer aprender mais? Confira o "Microsoft Learn"
+[Microsoft Learn](https://learn.microsoft.com/) tem uma infinidade de caminhos de aprendizado. Se você ainda tem tempo nesta sessão e/ou deseja continuar aprendendo mais sobre o **GitHub Copilot**, confira o [**GitHub Copilot Fundamentals - Understand the AI pair programmer** caminho de aprendizado](https://learn.microsoft.com/training/paths/copilot/). Aqui estão alguns módulos que servem como ótimos seguimentos para este laboratório:
+- [Introdução à engenharia de prompts com o GitHub Copilot](https://learn.microsoft.com/training/modules/introduction-prompt-engineering-with-github-copilot/) - Descubra o essencial para criar prompts eficazes com o GitHub Copilot. Descubra técnicas para transformar seus comentários de código em código preciso e acionável, aprimorando seu fluxo de trabalho de desenvolvimento. (26 min)
+- [Introdução ao GitHub Copilot for Business](https://learn.microsoft.com/training/modules/introduction-to-github-copilot-for-business/) - Aprenda sobre a diferença entre **GitHub Copilot for Business** versus **GitHub Copilot for Individuals**, casos de uso específicos e histórias de clientes para o GitHub Copilot for Business, e como habilitá-lo. (23 min)
+- [Introdução ao GitHub Copilot Enterprise](https://learn.microsoft.com/training/modules/introduction-to-github-copilot-enterprise/) - Aprenda sobre as diferenças entre **GitHub Copilot for Enterprise**, for Business e for Individuals. Examine casos de uso específicos, incluindo como habilitar e usar o **GitHub Copilot Enterprise**. (17 min)
+
+Adicione **https://learn.microsoft.com/** aos seus favoritos para que você possa explorar outros **Caminhos de Aprendizado** no futuro, como [**Desenvolver soluções de IA generativa com o Azure OpenAI Service**](https://learn.microsoft.com/training/paths/develop-ai-solutions-azure-openai/)
+
+### Por favor, deixe-nos saber o que você acha do GitHub Copilot e deste workshop
+<!-- Instruir os participantes do laboratório a responderem as perguntas da pesquisa encontradas aqui: https://github.com/DaveOps30/copilot-hands-on/discussions -->
+<!-- Referenciar especificamente as perguntas da pesquisa "Workshop Survey". Além disso, mencionar que eles podem usar o "Workshop Feedback & Suggestions" para feedback geral e/ou sugestões. -->
+Adoraríamos ouvir seus pensamentos sobre o GitHub Copilot e este workshop.
+- Por favor, reserve um momento para responder às perguntas da pesquisa no [**Workshop Survey**](https://github.com/DaveOps30/copilot-hands-on/discussions/categories/workshop-survey).
+  - Para cada uma das duas perguntas, basta selecionar sua resposta e clicar no botão "Vote".
+  - Sinta-se à vontade para deixar um comentário para nos informar o que você realmente gostou e/ou o que poderíamos fazer de diferente para tornar este workshop mais valioso no futuro.
+- Se você tiver algum feedback ou sugestões de melhoria, por favor, nos avise na categoria de discussão [`Workshop Feedback & Suggestions`](https://github.com/DaveOps30/copilot-hands-on/discussions/categories/workshop-feedback-suggestions).
 
 <p align="center">
-**THANKS!**
-</p> 
+**OBRIGADO!**
+</p>
