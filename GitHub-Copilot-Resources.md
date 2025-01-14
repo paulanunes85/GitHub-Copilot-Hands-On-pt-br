@@ -42,3 +42,15 @@ Filtre Discussões para categorias específicas, por exemplo [**GitHub Copilot**
 - **http://gh.io/GitHub-Copilot-on-YouTube** - Confira a **Playlist do GitHub Copilot** no YouTube para uma lista curada de demos e vídeos informativos do **GitHub Copilot**. **(Por favor, use fones de ouvido e/ou legendas para não perturbar seus vizinhos)**
 
 **Você achou esta lista curada de recursos útil? Por favor, deixe-nos um comentário.** - Adoraríamos ver seu feedback. Você achou esta lista útil? Estava procurando algo que achou que estaria nesta lista? [Clique aqui para nos deixar um comentário ou sugestão sobre esta lista de recursos](https://github.com/DaveOps30/copilot-hands-on/discussions/3).
+
+## Avisos Legais
+ 
+A Microsoft e quaisquer colaboradores concedem a você uma licença para a documentação da Microsoft e outros conteúdos neste repositório sob a [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode),
+veja [LICENSE](LICENSE) e concedem a você uma licença para qualquer código no repositório sob a  [MIT License](https://opensource.org/licenses/MIT), consulte
+[LICENSE-CODE](LICENSE-CODE)
+ 
+Microsoft, Windows, Microsoft Azure e/ou outros produtos e serviços da Microsoft referenciados na documentação podem ser marcas registradas ou marcas registradas da Microsoft nos Estados Unidos e/ou em outros países. As licenças para este projeto não concedem a você direitos de uso de quaisquer nomes, logotipos ou marcas registradas da Microsoft. As diretrizes gerais de marcas registradas da Microsoft podem ser encontradas em http://go.microsoft.com/fwlink/?LinkID=254653.
+ 
+As informações de privacidade podem ser encontradas em https://privacy.microsoft.com/en-us/
+ 
+A Microsoft e quaisquer colaboradores reservam todos os outros direitos, sejam sob seus respectivos direitos autorais, patentes, ou marcas registradas, seja por implicação, estoppel ou de outra forma.
