@@ -7,19 +7,9 @@ NOTA: Estas instruções de laboratório são um fork do repositório [GitHub Co
 
 Esses passos **devem** ser concluídos antes de iniciar os laboratórios propriamente ditos.
 
-## 1. Certifique-se de que você está inscrito para acesso ao Copilot.
+## 1. Certifique-se de que você está inscrito para acesso ao GitHub Copilot.
 
-Se você ainda não tem acesso ao **GitHub Copilot**, vá para **https://gh.io/cfp-sea24aic** para resgatar um teste gratuito de 7 dias do GitHub Copilot. Você também pode usar este código QR.
-<p align="center">
-<img width="250" height="250" src="./images/GitHub Copilot Coupon 2024-08-14.png"></p>
-
-Preencha qualquer informação solicitada e pressione o botão `Apply coupon`.
-
-![Inscrevendo-se no Copilot](./images/pic007.png?raw=true "Inscrevendo-se no Copilot")
-
-Se tudo for bem-sucedido, você verá um banner que diz `You have successfully redeemed your coupon`.
-
-![Inscrevendo-se no Copilot](./images/pic008.png?raw=true "Inscrevendo-se no Copilot")
+- **Pré-requisitos:** Para usar o GitHub Copilot, você deve ter uma assinatura ativa do GitHub Copilot Business ou Enterprise. Inscreva-se para Copilot Free para VS Code apenas para fim de treinamento [Copilot for free para VS Code](https://learn.microsoft.com/en-us/visualstudio/ide/copilot-free-plan?view=vs-2022).
 
 ## 2. Crie seu próprio fork do repositório para esses laboratórios
 
